@@ -19,10 +19,12 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/css/main.css',
+    '@/assets/css/index.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    './plugins/api'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -35,6 +37,13 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/pwa',
 
+    '@nuxtjs/dotenv',
+    [
+      '@nuxtjs/eslint-module',
+      {
+        fix: true
+      }
+    ]
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -42,6 +51,7 @@ export default {
     '@nuxtjs/i18n',
     '@nuxt/postcss8',
     '@nuxtjs/sitemap',
+    'cookie-universal-nuxt',
     '@nuxtjs/axios'
   ],
 
@@ -51,7 +61,6 @@ export default {
       cookieKey: 'i18n_redirected',
       redirectOn: 'root',
       alwaysRedirect: true
-
     },
     locales: [
       {
@@ -69,7 +78,7 @@ export default {
     ],
     lazy: true,
     langDir: 'lang/',
-    defaultLocale: 'en'
+    defaultLocale: 'fa'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -77,9 +86,9 @@ export default {
     postcss: {
       plugins: {
         tailwindcss: {},
-        autoprefixer: {},
-      },
-    },
+        autoprefixer: {}
+      }
+    }
   },
 
   sitemap: {
@@ -91,5 +100,17 @@ export default {
 
   axios: {
     // proxy: true
+  },
+
+  router: {
+    base: '/royal-edition-front-end/' /** GITHUB Page Base URL (repo name) **/
+  },
+
+  typescript: {
+    typeCheck: {
+      eslint: {
+        files: './**/*.{ts,js,vue}'
+      }
+    }
   }
 }
