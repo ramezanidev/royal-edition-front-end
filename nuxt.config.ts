@@ -102,10 +102,6 @@ export default {
     // proxy: true
   },
 
-  router: {
-    base: '/royal-edition-front-end/' /** GITHUB Page Base URL (repo name) **/
-  },
-
   typescript: {
     typeCheck: {
       eslint: {
