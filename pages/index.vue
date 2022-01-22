@@ -17,10 +17,6 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'IndexPage',
-  asyncData ({ i18n, $api }) {
-    i18n.mergeLocaleMessage('fa', { welcome: '1' })
-    return $api.$get('/todos/1')
-  }
+  name: 'IndexPage'
 })
 </script>
