@@ -67,18 +67,21 @@ export default {
         code: 'en',
         iso: 'en-US',
         file: 'en-US',
-        name: 'English'
+        name: 'English',
+        dir: 'ltr'
       },
       {
         code: 'fa',
         iso: 'fa-IR',
         file: 'fa-IR',
-        name: 'Persian'
+        name: 'Persian',
+        dir: 'rtl'
       }
     ],
     lazy: true,
     langDir: 'lang/',
-    defaultLocale: 'fa'
+    defaultLocale: 'fa',
+    vueI18nLoader: true
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
