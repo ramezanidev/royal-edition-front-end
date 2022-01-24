@@ -16,7 +16,7 @@
             justify-evenly
             select-none
             rounded-xl
-            w-36
+            md:w-36 w-32
             h-12
             p-2
             text-brand-3 font-bold
@@ -45,7 +45,7 @@
             justify-evenly
             select-none
             rounded-xl
-            w-36
+            md:w-36 w-32
             h-12
             p-2
             text-brand-3 font-bold

@@ -63,45 +63,36 @@
         </option>
       </select>
     </div>
+    <!-- show small menu -->
+    <div class="flex md:hidden">
+      <button class="text-white" @click="isShowSmallMenu = true">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="45"
+          height="45"
+          fill="currentColor"
+          class="bi bi-list"
+          viewBox="0 0 16 16"
+        >
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </svg>
+      </button>
+    </div>
+
+    <LayoutAppSmMenu v-model="isShowSmallMenu" />
   </header>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import nav from '@/mixins/nav'
 
 export default Vue.extend({
   name: 'LayoutAppHeader',
-  computed: {
-    navBarLinks () {
-      return [
-        {
-          lable: this.$i18n.t('links.mainPage'),
-          href: '/'
-        },
-        {
-          lable: this.$i18n.t('links.serveces'),
-          href: '/#serveces'
-        },
-        {
-          lable: this.$i18n.t('links.aboutUs'),
-          href: '/#about-us'
-        },
-        {
-          lable: this.$i18n.t('links.calculator'),
-          href: '/calculator'
-        },
-        {
-          lable: this.$i18n.t('links.mag'),
-          href: '/mag'
-        },
-
-        {
-          lable: this.$i18n.t('links.contactUs'),
-          href: '/contact-us'
-        }
-      ]
-    }
-  }
+  mixins: [nav],
+  data: () => ({
+    isShowSmallMenu: true
+  })
 })
 </script>
 
