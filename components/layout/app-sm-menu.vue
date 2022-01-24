@@ -9,14 +9,27 @@
   >
     <menu
       v-if="isShowSmallMenu"
-      class="flex md:hidden fixed inset-0 bg-black bg-opacity-30 z-10"
+      class="flex md:hidden fixed inset-0 z-10 transition-all"
       @click.self="closeSmallMenu"
     >
-      <div class="bg-brand-3 bg-opacity-90 backdrop-blur-[20px] backdrop-filter w-3/4 shadow p-4 relative">
-        <div class="h-[70px]">
-          1
+      <div class="bg-brand-3 bg-opacity-90 backdrop-blur-[20px] backdrop-filter w-3/4 shadow p-4 pt-0 relative">
+        <div class="h-[70px] flex items-center justify-between">
+          <button class="text-white" @click="closeSmallMenu">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              fill="currentColor"
+              class="bi bi-x-lg"
+              viewBox="0 0 16 16"
+            >
+              <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
+              <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" />
+            </svg>
+          </button>
+          <img src="/logo.png" class="w-40 select-none" draggable="false" alt="coilaco">
         </div>
-        <div class="justify-center mt-2 gap-x-3 flex rtl:flex-row-reverse w-full">
+        <div class="justify-center mt-4 gap-x-3 flex rtl:flex-row-reverse w-full">
           <!-- Account links -->
           <button>
             <svg

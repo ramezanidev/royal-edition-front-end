@@ -1,9 +1,9 @@
 <template>
   <header
-    class="flex rtl:flex-row-reverse justify-between h-[70px] md:h-[100px] items-center"
+    class="flex rtl:flex-row-reverse justify-between h-[70px] md:h-[75px] xl:h-[80px] 2xl:h-[100px] items-center"
   >
     <div>
-      <span class="text-brand-7 text-[30px]">Logooo</span>
+      <img v-show="!isShowSmallMenu" src="/logo.png" class="w-40 select-none" draggable="false" alt="coilaco">
     </div>
     <div class="hidden md:block">
       <nav
@@ -64,7 +64,7 @@
       </select>
     </div>
     <!-- show small menu -->
-    <div class="flex md:hidden">
+    <div v-show="!isShowSmallMenu" class="flex md:hidden">
       <button class="text-white" @click="isShowSmallMenu = true">
         <svg
           xmlns="http://www.w3.org/2000/svg"
