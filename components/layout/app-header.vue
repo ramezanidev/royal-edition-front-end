@@ -91,7 +91,7 @@ export default Vue.extend({
   name: 'LayoutAppHeader',
   mixins: [nav],
   data: () => ({
-    isShowSmallMenu: true
+    isShowSmallMenu: false
   })
 })
 </script>
