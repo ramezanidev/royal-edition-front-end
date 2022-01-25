@@ -49,30 +49,7 @@
             </svg>
           </button>
           <!-- change Lang -->
-          <select
-            class="
-          outline-none
-          uppercase
-          cursor-pointer
-          flex
-          pt-2
-          px-2
-          text-[18px]
-          xl:text-[20px]
-          bg-transparent
-          text-white
-        "
-            @change="$router.push(switchLocalePath($event.target.value))"
-          >
-            <option
-              v-for="locale in $i18n.locales"
-              :key="locale.code"
-              :value="locale.code"
-              :selected="locale.code === $i18n.locale"
-            >
-              {{ locale.code }}
-            </option>
-          </select>
+          <UtilityAppSelect :selected="$i18n.locale" :options="$i18n.locales.map((x) => x.code)" @change="$router.push(switchLocalePath($event))" />
         </div>
         <!-- divider -->
         <div class="w-full my-6 h-0 border border-white opacity-50" />

@@ -3,16 +3,18 @@
     class="flex rtl:flex-row-reverse justify-between h-[70px] md:h-[75px] xl:h-[80px] 2xl:h-[100px] items-center"
   >
     <div>
-      <img v-show="!isShowSmallMenu" src="/logo.png" class="w-40 select-none" draggable="false" alt="coilaco">
+      <NuxtLink to="/">
+        <img v-show="!isShowSmallMenu" src="/logo.png" class="w-40 select-none" draggable="false" alt="coilaco">
+      </NuxtLink>
     </div>
     <div class="hidden md:block">
       <nav
-        class="flex gap-x-5 xl:gap-x-8 text-white text-[18px] xl:text-[20px]"
+        class="flex gap-x-5 xl:gap-x-8 text-[18px] xl:text-[20px]"
       >
         <NuxtLink
           v-for="link in navBarLinks"
           :key="link.href"
-          class="nav-item select-none"
+          class="nav-item select-none text-white hover:text-opacity-70 transition-all"
           draggable="false"
           :to="localePath(link.href, $i18n.locale)"
         >
@@ -38,30 +40,7 @@
           />
         </svg>
       </button>
-      <select
-        class="
-          outline-none
-          uppercase
-          cursor-pointer
-          flex
-          pt-2
-          px-2
-          text-[18px]
-          xl:text-[20px]
-          bg-transparent
-          text-white
-        "
-        @change="$router.push(switchLocalePath($event.target.value))"
-      >
-        <option
-          v-for="locale in $i18n.locales"
-          :key="locale.code"
-          :value="locale.code"
-          :selected="locale.code === $i18n.locale"
-        >
-          {{ locale.code }}
-        </option>
-      </select>
+      <UtilityAppSelect :selected="$i18n.locale" :options="$i18n.locales.map((x) => x.code)" @change="$router.push(switchLocalePath($event))" />
     </div>
     <!-- show small menu -->
     <div v-show="!isShowSmallMenu" class="flex md:hidden">
