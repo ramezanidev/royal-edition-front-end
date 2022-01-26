@@ -83,11 +83,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-
+import mixins from 'vue-typed-mixins'
 import { sectionNavigate } from '@/mixins'
 
-export default Vue.extend({
+export default mixins(sectionNavigate).extend({
   name: 'IntroductionSection',
   /*
    read:  (next and previous) methods: [
@@ -98,6 +97,7 @@ export default Vue.extend({
   mixins: [sectionNavigate],
   mounted () {
     const el = this.$refs.parentElement as HTMLDivElement
+    // @ts-ignore
     const mc = this.$hammer(el)
 
     mc.on('swipeup swipedown', (event:any) => {
@@ -111,9 +111,9 @@ export default Vue.extend({
   methods: {
     onScroll (event:WheelEvent) {
       if (event.deltaY < 0) {
-        this.next()
-      } else {
         this.previous()
+      } else {
+        this.next()
       }
     }
   }

@@ -11,7 +11,7 @@
           text-[18px]
           xl:text-[20px]
           text-white"
-      >EN</span>
+      >{{ selected }}</span>
       <span class="text-white">
         <svg
           xmlns="http://www.w3.org/2000/svg"
