@@ -1656,6 +1656,11 @@
   dependencies:
     "@types/webpack" "^4"
 
+"@types/hammerjs@^2.0.41":
+  "integrity" "sha512-ewXv/ceBaJprikMcxCmWU1FKyMAQ2X7a9Gtmzw8fcg2kIePI1crERDM818W+XYrxqdBBOdlf2rm137bU+BltCA=="
+  "resolved" "https://registry.npmjs.org/@types/hammerjs/-/hammerjs-2.0.41.tgz"
+  "version" "2.0.41"
+
 "@types/html-minifier-terser@^5.0.0":
   "integrity" "sha512-h4lTMgMJctJybDp8CQrxTUiiYmedihHWkjnF/8Pxseu2S6Nlfcy8kwboQ8yejh456rP2yWoEVm1sS/FVsfM48w=="
   "resolved" "https://registry.npmjs.org/@types/html-minifier-terser/-/html-minifier-terser-5.1.2.tgz"
@@ -1704,10 +1709,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*":
-  "integrity" "sha512-6xwbrW4JJiJLgF+zNypN5wr2ykM9/jHcL7rQ8fZe2vuftggjzZeRSM4OwRc6Xk8qWjwJ99qVHo/JgOGmomWRog=="
-  "resolved" "https://registry.npmjs.org/@types/node/-/node-17.0.4.tgz"
-  "version" "17.0.4"
+"@types/node@*", "@types/node@^17.0.12":
+  "integrity" "sha512-4YpbAsnJXWYK/fpTVFlMIcUIho2AYCi4wg5aNPrG1ng7fn/1/RZfCIpRCiBX+12RVa34RluilnvCqD+g3KiSiA=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-17.0.12.tgz"
+  "version" "17.0.12"
 
 "@types/node@^12.0.2":
   "integrity" "sha512-NxmtBRGipjx1B225OeMdI+CQmLbYqvvmYbukDTJGDgzIDgPQ1EcjGmYxGhOk5hTBqeB558S6RgHSpq2iiqifAQ=="
@@ -9749,6 +9754,11 @@
   "integrity" "sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw=="
   "resolved" "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
+
+"vue-typed-mixins@^0.2.0":
+  "integrity" "sha512-0OxuinandPWv3nm5k/reYkuKtX3jjPZ40Sy9roJz0ih8PUzmI7zSRiXFEJ62LsyRegw9Tqy+qMkajk7ipKP8Vg=="
+  "resolved" "https://registry.npmjs.org/vue-typed-mixins/-/vue-typed-mixins-0.2.0.tgz"
+  "version" "0.2.0"
 
 "vue@^2.0.0", "vue@^2.6.12":
   "integrity" "sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ=="
