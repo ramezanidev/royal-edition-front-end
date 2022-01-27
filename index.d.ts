@@ -15,6 +15,6 @@ declare module 'vue/types/vue' {
   }
   interface Vue {
     $breakPoint(breakPoints: BreakPoints): BreakPointsObject
-    $hammer: HammerManager
+    $hammer(element: HTMLElement | SVGElement, options?: HammerOptions | undefined): HammerManager
   }
 }

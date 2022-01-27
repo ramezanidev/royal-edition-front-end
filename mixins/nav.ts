@@ -10,7 +10,7 @@ export default Vue.extend({
         },
         {
           lable: this.$i18n.t('links.serveces'),
-          href: '/#serveces'
+          href: '/#services'
         },
         {
           lable: this.$i18n.t('links.aboutUs'),

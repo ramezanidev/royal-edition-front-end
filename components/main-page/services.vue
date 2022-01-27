@@ -1,7 +1,7 @@
 <template>
   <div
     ref="parentElement"
-    class="w-full h-full flex items-center"
+    class="w-full h-full flex items-center absolute inset-0"
     @wheel="onScroll"
   >
     <!-- navigate -->
@@ -251,9 +251,9 @@ export default mixins(sectionNavigate).extend({
       if (!this.isAnimation) {
         if (this.breakPoint.md) {
           if (event.type === 'swipeup') {
-            this.nextSlide()
-          } else if (event.type === 'swipedown') {
             this.previousSlide()
+          } else if (event.type === 'swipedown') {
+            this.nextSlide()
           }
         } else if (event.type === 'swiperight') {
           if (this.direction === 'rtl') {

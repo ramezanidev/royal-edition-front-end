@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-brand-3 h-screen px-[20px] pb-[20px] md:px-[40px] md:pb-[40px] xl:px-[50px] xl:pb-[50px] 2xl:px-[50px] 2xl:pb-[50px] flex flex-col">
+  <div class="bg-brand-3 h-full px-[20px] pb-[20px] md:px-[40px] md:pb-[40px] xl:px-[50px] xl:pb-[50px] 2xl:px-[50px] 2xl:pb-[50px] flex flex-col">
     <LayoutAppHeader />
     <div class="rounded-[25px] flex-auto flex items-center relative bg-gradient-radial from-brand-1 to-brand-2" style="height:calc(100% - 100px)">
       <Nuxt />
@@ -28,3 +28,9 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style>
+html, body, #__nuxt, #__layout {
+  @apply h-full w-full
+}
+</style>

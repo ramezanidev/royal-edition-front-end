@@ -16,17 +16,48 @@ export default Vue.extend({
   name: 'IndexPage',
   data: () => ({
     step: 1 /* active section */,
-    animation: 'fade',
-    isAnimation: false
+    animation: 'down',
+    isAnimation: false,
+    animationFlagTimeOut: null as any,
+    routerHash: {
+      1: '',
+      2: '#services'
+    }
   }),
   watch: {
     step (a, b) {
-      this.animation = a > b ? 'slide' : 'fade'
+      // set animation name
+      this.animation = a > b ? 'up' : 'down'
       // stop change sections
+      if (!isNaN(this.animationFlagTimeOut)) {
+        // clear time out for old navigate
+        clearTimeout(this.animationFlagTimeOut)
+      }
       this.isAnimation = true
-      setTimeout(() => {
+      this.animationFlagTimeOut = setTimeout(() => {
         this.isAnimation = false
       }, 1000)
+      // change url hash on navigate
+      // @ts-ignore
+      this.$router.push({ ...this.$route, hash: this.routerHash[a] })
+    },
+    '$route.fullPath' () {
+      const hash = this.$route.hash
+      if (hash) {
+        this.$nextTick(() => {
+          this.step = Number(Object.entries(this.routerHash).find(item => item[1] === hash)?.[0] || 1)
+        })
+      } else {
+        this.step = 1
+      }
+    }
+  },
+  created () {
+    const hash = this.$route.hash
+    if (hash) {
+      this.$nextTick(() => {
+        this.step = Number(Object.entries(this.routerHash).find(item => item[1] === hash)?.[0] || 1)
+      })
     }
   },
   methods: {
@@ -46,29 +77,29 @@ export default Vue.extend({
 
 <style>
 
-.fade-enter-active, .fade-leave-active {
+.down-enter-active, .down-leave-active {
   transition: 1000ms;
 }
-.fade-enter{
+.down-enter{
   transform: translateY(-100%);
 }
-.fade-enter-to, .fade-leave {
+.down-enter-to, .down-leave {
   transform: translateY(0%);
 }
-.fade-leave-to {
+.down-leave-to {
   transform: translateY(100%);
 }
 
-.slide-enter-active, .slide-leave-active {
+.up-enter-active, .up-leave-active {
   transition: 1000ms;
 }
-.slide-enter{
+.up-enter{
   transform: translateY(100%);
 }
-.slide-enter-to, .slide-leave {
+.up-enter-to, .up-leave {
   transform: translateY(0%);
 }
-.slide-leave-to {
+.up-leave-to {
   transform: translateY(-100%);
 }
 
