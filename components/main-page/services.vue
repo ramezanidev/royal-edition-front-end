@@ -190,7 +190,7 @@
       >
         <div
           :style="circleStyle"
-          style="box-shadow: 0 0 20px 10px inset #00000096;"
+          style="box-shadow: 0 0 20px 10px inset #00000096"
           class="
             flex
             bg-white
@@ -205,13 +205,49 @@
           "
         >
           <div class="absolute inset-0 circle-parent">
-            <div v-for="i in 6" :key="i">
-              <button :class="[{'!opacity-100 !text-base !shadow-lg !pointer-events-auto !bg-brand-6 !py-2 !px-4 !z-[2]': step === i}, {'!opacity-100 !pointer-events-auto !z-[2]': (step === i+1 | step === i-1)}]" class="bg-brand-8 text-sm transition-all opacity-0 pointer-events-none duration-1000 delay-300 text-white py-1 px-3 rounded-full col-start-2 mx-auto font-bold" @click="step = i">
+            <div
+              v-for="i in 6"
+              :key="i"
+              :class="{
+                '!z-[2]':
+                  (step === i + 1) | (step === i - 1),
+              }"
+            >
+              <button
+                :class="[
+                  {
+                    '!opacity-100 !text-sm h-md:!text-base !shadow-lg !pointer-events-auto !bg-brand-6 h-md:!py-2 !p-1 h-md:!px-4 !px-2':
+                      step === i,
+                  },
+                  {
+                    '!opacity-100 !pointer-events-auto]':
+                      (step === i + 1) | (step === i - 1),
+                  },
+                ]"
+                class="
+                  bg-brand-8
+                  text-xs
+                  h-md:text-sm
+                  transition-all
+                  opacity-0
+                  pointer-events-none
+                  duration-1000
+                  delay-300
+                  text-white
+                  py-1
+                  px-3
+                  rounded-full
+                  col-start-2
+                  h-md:!mx-auto
+                  font-bold w-[calc(100%-theme(spacing.12))] h-md:w-auto ml-9 rtl:mr-9
+                "
+                @click="step = i"
+              >
                 Lorem ipsum dolor {{ i }}
               </button>
             </div>
           </div>
-          <div class="bg-[#C4C4C4] w-16 h-16 rounded-full m-auto" />
+          <div class="bg-[#C4C4C4] h-md:w-16 h-md:h-16 w-14 h-14 rounded-full m-auto" />
         </div>
       </div>
     </div>
@@ -326,7 +362,7 @@ export default mixins(sectionNavigate).extend({
 
 <style lang="scss">
 .circle-parent > div {
-  @apply w-full h-auto grid grid-cols-2 justify-end py-2 absolute top-1/2 transform -translate-y-1/2
+  @apply w-full h-auto grid grid-cols-2 justify-end py-2 absolute top-1/2 transform -translate-y-1/2;
 }
 
 html[dir="rtl"] .circle-parent {
