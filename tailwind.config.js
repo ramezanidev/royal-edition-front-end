@@ -12,7 +12,11 @@ module.exports = {
   theme: {
     screens: {
       ...defaultTheme.screens,
-      xl: '1370px'
+      xl: '1370px',
+      // css height media query
+      'h-sm': { raw: '(min-height: 540px)' },
+      'h-md': { raw: '(min-height: 668px)' },
+      'h-lg': { raw: '(min-height: 924px)' }
     },
     extend: {
       backgroundImage: {

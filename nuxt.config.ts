@@ -58,7 +58,7 @@ export default {
     [
       'nuxt-perfect-cache',
       {
-        disable: false,
+        disable: true, // disabled in develop
         appendHost: true,
         ignoreConnectionErrors: true,
         prefix: 'r-',
@@ -86,15 +86,13 @@ export default {
         code: 'en',
         iso: 'en-US',
         file: 'en-US',
-        name: 'English',
-        dir: 'ltr'
+        name: 'English'
       },
       {
         code: 'fa',
         iso: 'fa-IR',
         file: 'fa-IR',
-        name: 'Persian',
-        dir: 'rtl'
+        name: 'Persian'
       }
     ],
     lazy: true,

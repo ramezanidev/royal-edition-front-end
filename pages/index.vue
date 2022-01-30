@@ -25,9 +25,9 @@ export default Vue.extend({
     }
   }),
   watch: {
-    step (a, b) {
+    step (newValue:number, oldValue:number) {
       // set animation name
-      this.animation = a > b ? 'up' : 'down'
+      this.animation = newValue > oldValue ? 'up' : 'down'
       // stop change sections
       if (!isNaN(this.animationFlagTimeOut)) {
         // clear time out for old navigate
@@ -37,9 +37,13 @@ export default Vue.extend({
       this.animationFlagTimeOut = setTimeout(() => {
         this.isAnimation = false
       }, 1000)
+      // change button position
+      this.$nuxt.$emit('change-button-position', {
+        y: newValue === 2 ? 'up' : 'down'
+      })
       // change url hash on navigate
       // @ts-ignore
-      this.$router.push({ ...this.$route, hash: this.routerHash[a] })
+      this.$router.push({ ...this.$route, hash: this.routerHash[newValue] })
     },
     '$route.fullPath' () {
       const hash = this.$route.hash
@@ -56,7 +60,10 @@ export default Vue.extend({
     const hash = this.$route.hash
     if (hash) {
       this.$nextTick(() => {
-        this.step = Number(Object.entries(this.routerHash).find(item => item[1] === hash)?.[0] || 1)
+        const step = Number(Object.entries(this.routerHash).find(item => item[1] === hash)?.[0] || 1)
+        if (step && step !== 1) {
+          this.step = step
+        }
       })
     }
   },
@@ -67,7 +74,7 @@ export default Vue.extend({
       }
     },
     previousSection () {
-      if (!this.isAnimation) {
+      if (!this.isAnimation && this.step > 1) {
         this.step--
       }
     }
