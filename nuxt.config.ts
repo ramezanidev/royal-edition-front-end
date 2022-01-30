@@ -54,7 +54,24 @@ export default {
     '@nuxt/postcss8',
     '@nuxtjs/sitemap',
     'cookie-universal-nuxt',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    [
+      'nuxt-perfect-cache',
+      {
+        disable: false,
+        appendHost: true,
+        ignoreConnectionErrors: true,
+        prefix: 'r-',
+        url: process.env.REDIS,
+        getCacheData (route:string) {
+          return ({
+            key: `page-${route}`,
+            expire: 60 /* seconds */
+          })
+        }
+      }
+    ]
+
   ],
 
   i18n: {
