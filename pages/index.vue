@@ -15,15 +15,31 @@ import Vue from 'vue'
 export default Vue.extend({
   name: 'IndexPage',
   data: () => ({
-    step: 1 /* active section */,
     animation: 'down',
-    isAnimation: false,
     animationFlagTimeOut: null as any,
     routerHash: {
       1: '',
       2: '#services'
     }
   }),
+  computed: {
+    step: { /* active section */
+      set (value) {
+        this.$store.commit('mainPageStep/setStep', value)
+      },
+      get ():number {
+        return this.$store.getters['mainPageStep/step']
+      }
+    },
+    isAnimation: {
+      set (value:boolean) {
+        this.$store.commit('mainPageStep/setAnimation', value)
+      },
+      get ():boolean {
+        return this.$store.getters['mainPageStep/isAnimation']
+      }
+    }
+  },
   watch: {
     step (newValue:number, oldValue:number) {
       // set animation name
@@ -38,9 +54,10 @@ export default Vue.extend({
         this.isAnimation = false
       }, 1000)
       // change button position
-      this.$nuxt.$emit('change-button-position', {
-        y: newValue === 2 ? 'up' : 'down'
-      })
+      const positon = {
+        rotate: newValue === 2 ? 'up' : 'down'
+      }
+      this.$store.commit('scrollToButton/changePosition', positon)
       // change url hash on navigate
       // @ts-ignore
       this.$router.push({ ...this.$route, hash: this.routerHash[newValue] })
@@ -69,14 +86,10 @@ export default Vue.extend({
   },
   methods: {
     nextSection () {
-      if (!this.isAnimation) {
-        this.step++
-      }
+      this.$store.commit('mainPageStep/increase')
     },
     previousSection () {
-      if (!this.isAnimation && this.step > 1) {
-        this.step--
-      }
+      this.$store.commit('mainPageStep/dicrease')
     }
   }
 })

@@ -10,11 +10,11 @@
           'md:right-6 md:left-auto':buttonPosition.x === 'right'
         }]"
         class="bg-gradient-to-b shadow-lg backdrop-blur-[5px] backdrop-filter from-[#003050bd] to-[#0f4c75c0] absolute rounded-full items-center justify-center md:bottom-4 -bottom-3 left-1/2 transform -translate-x-1/2 md:translate-x-0 md:w-12 md:h-12 w-10 h-10 flex"
-        @click="0"
+        @click="scrollTo"
       >
         <svg
           :class="{
-            '!rotate-180':buttonPosition.y === 'up'
+            '!rotate-180':buttonPosition.rotate === 'up'
           }"
           class="w-4 rotate-0 transition-all duration-1000"
           viewBox="0 0 26 18"
@@ -30,20 +30,10 @@
 
 <script lang="ts">
 import Vue from 'vue'
-
-interface ButtonPosition {
-  x: ('left' | 'right'),
-  rotate: ('up' | 'down')
-}
+import type { RootState } from '@/store/scrollToButton'
 
 export default Vue.extend({
   name: 'DefaultLayout',
-  data: () => ({
-    buttonPosition: {
-      x: 'left',
-      rotate: 'down'
-    } as ButtonPosition
-  }),
   head () {
     return {
       htmlAttrs: {
@@ -51,22 +41,37 @@ export default Vue.extend({
       }
     }
   },
+  computed: {
+    direction () {
+      return this.$i18n.t('dir') as string
+    },
+    buttonPosition () {
+      return this.$store.getters['scrollToButton/position'] as RootState['position']
+    }
+  },
   watch: {
     '$i18n.locale': {
       handler () {
-        this.buttonPosition.x = this.$i18n.t('dir') === 'ltr' ? 'right' : 'left'
+        const positon = {
+          x: this.direction === 'ltr' ? 'right' : 'left'
+        }
+        this.$store.commit('scrollToButton/changePosition', positon)
       },
       immediate: true
     }
   },
-  created () {
-    this.$nuxt.$on('change-button-position', this.changeButtonPosition)
-  },
   methods: {
-    changeButtonPosition (status: ButtonPosition) {
-      this.buttonPosition = {
-        ...this.buttonPosition,
-        ...status
+    nextSection () {
+      this.$store.commit('mainPageStep/increase')
+    },
+    previousSection () {
+      this.$store.commit('mainPageStep/dicrease')
+    },
+    scrollTo () {
+      if (this.buttonPosition.rotate === 'up') {
+        this.previousSection()
+      } else {
+        this.nextSection()
       }
     }
   }
