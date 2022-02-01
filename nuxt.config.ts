@@ -26,7 +26,8 @@ export default {
   plugins: [
     './plugins/api',
     './plugins/hammerjs.client.ts',
-    './plugins/breakpoint.client.ts'
+    './plugins/breakpoint.client.ts',
+    './plugins/i18n.ts'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -53,7 +54,7 @@ export default {
     '@nuxtjs/i18n',
     '@nuxt/postcss8',
     '@nuxtjs/sitemap',
-    'cookie-universal-nuxt',
+    ['cookie-universal-nuxt', { alias: 'cookiz' }],
     '@nuxtjs/axios',
     [
       'nuxt-perfect-cache',
@@ -75,12 +76,7 @@ export default {
   ],
 
   i18n: {
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root',
-      alwaysRedirect: true
-    },
+    detectBrowserLanguage: false,
     locales: [
       {
         code: 'en',
@@ -95,7 +91,6 @@ export default {
         name: 'Persian'
       }
     ],
-    lazy: true,
     langDir: 'lang/',
     defaultLocale: 'fa',
     vueI18nLoader: true
