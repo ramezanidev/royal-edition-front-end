@@ -53,6 +53,25 @@
         />
       </svg>
     </button>
+    <!-- scroll to top -->
+    <button
+      :class="[{
+        'md:left-6 md:right-auto':buttonPosition.x === 'left'
+      }, {
+        'md:right-6 md:left-auto':buttonPosition.x === 'right'
+      }]"
+      class="bg-gradient-to-b md:flex hidden shadow-lg backdrop-blur-[5px] backdrop-filter from-[#003050bd] to-[#0f4c75c0] absolute rounded-full items-center justify-center md:bottom-4 z-[1] top-3 left-1/2 transform -translate-x-1/2 md:translate-x-0 md:w-12 md:h-12 w-10 h-10"
+      @click.stop="previous"
+    >
+      <svg
+        class="w-4 rotate-180"
+        viewBox="0 0 26 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M13.7924 16.9706C13.3921 17.4906 12.6079 17.4906 12.2076 16.9706L0.382967 1.60999C-0.12323 0.952425 0.345533 0 1.17537 0L24.8246 0C25.6545 0 26.1232 0.952425 25.617 1.60999L13.7924 16.9706Z" fill="white" />
+      </svg>
+    </button>
     <!-- body -->
     <div
       class="
@@ -216,17 +235,17 @@
               <button
                 :class="[
                   {
-                    '!opacity-100 !text-sm h-md:!text-base !shadow-lg !pointer-events-auto !bg-brand-6 h-md:!py-2 !p-1 h-md:!px-4 !px-2':
+                    '!opacity-100 h-md:!text-base !text-sm !shadow-lg !pointer-events-auto !bg-brand-6 h-md:!py-2 !p-1 h-md:!px-4 !px-2':
                       step === i,
                   },
                   {
-                    '!opacity-100 !pointer-events-auto]':
+                    'md:!opacity-100 md:!pointer-events-auto':
                       (step === i + 1) | (step === i - 1),
                   },
                 ]"
                 class="
-                  bg-brand-8
-                  text-xs
+                  bg-brand-8 transform ltr:-rotate-90 rtl:rotate-90
+                  text-xs md:!transform-none
                   h-md:text-sm
                   transition-all
                   opacity-0
@@ -287,9 +306,9 @@ export default mixins(sectionNavigate).extend({
       if (!this.isAnimation) {
         if (this.breakPoint.md) {
           if (event.type === 'swipeup') {
-            this.previousSlide()
-          } else if (event.type === 'swipedown') {
             this.nextSlide()
+          } else if (event.type === 'swipedown') {
+            this.previousSlide()
           }
         } else if (event.type === 'swiperight') {
           if (this.direction === 'rtl') {
@@ -320,13 +339,27 @@ export default mixins(sectionNavigate).extend({
     direction () {
       return this.$i18n.t('dir') as string
     },
+    deg () {
+      if (this.direction === 'rtl' && this.breakPoint.md) {
+        return '+'
+      } else if (this.direction === 'ltr' && this.breakPoint.md) {
+        return '-'
+      } else if (this.direction === 'ltr' && !this.breakPoint.md) {
+        return '+'
+      } else if (this.direction === 'rtl' && !this.breakPoint.md) {
+        return '-'
+      }
+    },
     circleStyle () {
       return {
         // @ts-ignore
-        transform: `rotate(${this.direction === 'ltr' ? '+' : '-'}${
-          this.step * 45 - 45
+        transform: `rotate(${this.deg}${
+          (this.step - 1) * 45
         }deg)`
       }
+    },
+    buttonPosition () {
+      return this.$store.getters['scrollToButton/position']
     }
   },
   methods: {
@@ -367,10 +400,10 @@ export default mixins(sectionNavigate).extend({
 
 html[dir="rtl"] .circle-parent {
   & > div:nth-of-type(1) {
-    transform: translateY(-50%) rotate(-90deg);
+    transform: translateY(-50%) rotate(270deg);
   }
   & > div:nth-of-type(2) {
-    transform: translateY(-50%) rotate(-45deg);
+    transform: translateY(-50%) rotate(315deg);
   }
   & > div:nth-of-type(3) {
     transform: translateY(-50%) rotate(0deg);
@@ -413,27 +446,6 @@ html[dir="ltr"] .circle-parent {
       transform: translateY(-50%) rotate(0deg);
     }
     & > div:nth-of-type(2) {
-      transform: translateY(-50%) rotate(45deg);
-    }
-    & > div:nth-of-type(3) {
-      transform: translateY(-50%) rotate(90deg);
-    }
-    & > div:nth-of-type(4) {
-      transform: translateY(-50%) rotate(135deg);
-    }
-    & > div:nth-of-type(5) {
-      transform: translateY(-50%) rotate(180deg);
-    }
-    & > div:nth-of-type(6) {
-      transform: translateY(-50%) rotate(225deg);
-    }
-  }
-
-  html[dir="ltr"] .circle-parent {
-    & > div:nth-of-type(1) {
-      transform: translateY(-50%) rotate(0deg);
-    }
-    & > div:nth-of-type(2) {
       transform: translateY(-50%) rotate(-45deg);
     }
     & > div:nth-of-type(3) {
@@ -447,6 +459,27 @@ html[dir="ltr"] .circle-parent {
     }
     & > div:nth-of-type(6) {
       transform: translateY(-50%) rotate(-225deg);
+    }
+  }
+
+  html[dir="ltr"] .circle-parent {
+    & > div:nth-of-type(1) {
+      transform: translateY(-50%) rotate(0deg);
+    }
+    & > div:nth-of-type(2) {
+      transform: translateY(-50%) rotate(45deg);
+    }
+    & > div:nth-of-type(3) {
+      transform: translateY(-50%) rotate(90deg);
+    }
+    & > div:nth-of-type(4) {
+      transform: translateY(-50%) rotate(135deg);
+      }
+    & > div:nth-of-type(5) {
+      transform: translateY(-50%) rotate(180deg);
+      }
+    & > div:nth-of-type(6) {
+      transform: translateY(-50%) rotate(225deg);
     }
   }
 }

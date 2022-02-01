@@ -9,7 +9,7 @@
     </div>
     <div class="hidden md:block">
       <nav
-        class="flex gap-x-5 xl:gap-x-8 text-[18px] xl:text-[20px]"
+        class="flex gap-x-2 lg:gap-x-6 xl:gap-x-8 text-[16px] lg:text-[18px] xl:text-[20px]"
       >
         <NuxtLink
           v-for="link in navBarLinks"
@@ -23,7 +23,7 @@
       </nav>
     </div>
     <div class=" items-center gap-x-3 rtl:flex-row-reverse hidden md:flex">
-      <button>
+      <button class="group">
         <svg
           width="26"
           height="30"
@@ -33,7 +33,7 @@
         >
           <path
             d="M11.3611 28.0833C6.7434 28.0833 3 31.8267 3 36.4444V40.625M36.4444 40.625V36.4444C36.4444 31.8267 32.701 28.0833 28.0833 28.0833H19.7222M19.7222 3C15.1045 3 11.3611 6.7434 11.3611 11.3611C11.3611 15.9788 15.1045 19.7222 19.7222 19.7222C24.3399 19.7222 28.0833 15.9788 28.0833 11.3611C28.0833 9.83819 27.6762 8.41036 26.9648 7.18056"
-            stroke="white"
+            class="stroke-white group-hover:stroke-brand-4 transition-all"
             stroke-width="5"
             stroke-linecap="round"
             stroke-linejoin="round"
