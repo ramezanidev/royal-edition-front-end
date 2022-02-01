@@ -132,17 +132,16 @@
                     col-start-1 col-end-2
                     text-center
                     md:rtl:text-right md:ltr:text-left
-                    mt-8
+                    sm:mt-8 mt-4
                     md:mt-0
                   "
                 >
                   <h2
                     class="
-                      text-[1.5rem]
-                      whitespace-nowrap
+text-[1.2rem] sm:text-[1.5rem]                       whitespace-nowrap
                       md:text-[2.3rem]
                       xl:text-[2.8rem]
-                      mb-6
+                    sm:mb-6 mb-4
                       md:mb-10
                       font-extrabold
                       text-brand-3
@@ -152,7 +151,7 @@
                   </h2>
                   <p
                     class="
-                      text-brand-5 text-lg
+                      text-brand-5 text-sm sm:text-lg
                       xl:text-xl
                       mb-8
                       md:mb-12
@@ -235,7 +234,7 @@
               <button
                 :class="[
                   {
-                    '!opacity-100 h-md:!text-base !text-sm !shadow-lg !pointer-events-auto !bg-brand-6 h-md:!py-2 !p-1 h-md:!px-4 !px-2':
+                    '!opacity-100 h-md:!text-base !text-xs sm:!text-sm !shadow-lg !pointer-events-auto !bg-brand-6 h-md:!py-2 !p-1 h-md:!px-4 !px-2':
                       step === i,
                   },
                   {

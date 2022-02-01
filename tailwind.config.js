@@ -13,6 +13,7 @@ module.exports = {
     screens: {
       ...defaultTheme.screens,
       xl: '1370px',
+      sm: '420px',
       // css height media query
       'h-sm': { raw: '(min-height: 540px)' },
       'h-md': { raw: '(min-height: 668px)' },
