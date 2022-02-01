@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 import type { Plugin } from '@nuxt/types'
 
 type BreakPoints = {
@@ -10,11 +12,11 @@ type BreakPointsObject = {
 
 const plugin: Plugin = (_, inject) => {
   const breakPoint = (breakPoints:BreakPoints) => {
-    const obj:BreakPointsObject = {}
+    const obj:BreakPointsObject = Vue.observable({})
     for (const [key, value] of Object.entries(breakPoints)) {
       const media = window.matchMedia(`(min-width: ${value})`)
-      obj[key] = media.matches
-      media.onchange = ({ matches }) => (obj[key] = matches)
+      Vue.set(obj, key, media.matches)
+      media.onchange = ({ matches }) => Vue.set(obj, key, matches)
     }
     return obj
   }
