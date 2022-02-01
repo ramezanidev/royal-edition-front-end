@@ -4,7 +4,10 @@
       <MainPageIntroduction v-show="step === 1" @next="nextSection" />
     </transition>
     <transition :name="animation">
-      <MainPageServices v-show="step === 2" @previous="previousSection" />
+      <MainPageServices v-show="step === 2" @previous="previousSection" @next="nextSection" />
+    </transition>
+    <transition :name="animation">
+      <MainPageAboutUs v-show="step === 3" @previous="previousSection" />
     </transition>
   </div>
 </template>
@@ -19,7 +22,8 @@ export default Vue.extend({
     animationFlagTimeOut: null as any,
     routerHash: {
       1: '',
-      2: '#services'
+      2: '#services',
+      3: '#about-us'
     }
   }),
   computed: {
@@ -55,7 +59,7 @@ export default Vue.extend({
       }, 1000)
       // change button position
       const positon = {
-        rotate: newValue === 2 ? 'up' : 'down'
+        rotate: newValue === 3 ? 'up' : 'down'
       }
       this.$store.commit('scrollToButton/changePosition', positon)
       // change url hash on navigate
@@ -68,8 +72,6 @@ export default Vue.extend({
         this.$nextTick(() => {
           this.step = Number(Object.entries(this.routerHash).find(item => item[1] === hash)?.[0] || 1)
         })
-      } else {
-        this.step = 1
       }
     }
   },

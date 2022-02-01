@@ -23,8 +23,11 @@ export const getters:GetterTree<RootState, RootState> = {
 
 export const mutations:MutationTree<RootState> = {
   increase (state) {
+    console.log('increase')
     if (!state.isAnimation) {
+      console.log(state.step)
       state.step++
+      console.log(state.step)
     }
   },
   dicrease (state) {

@@ -69,7 +69,7 @@ export default Vue.extend({
     },
     scrollTo () {
       if (this.buttonPosition.rotate === 'up') {
-        this.previousSection()
+        this.$store.commit('mainPageStep/setStep', 1) // go to first section
       } else {
         this.nextSection()
       }
