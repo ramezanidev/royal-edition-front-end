@@ -123,5 +123,18 @@ export default {
         files: './**/*.{ts,js,vue}'
       }
     }
+  },
+
+  pwa: {
+    manifest: {
+      name: 'Coilaco',
+      short_name: 'Coilaco',
+      lang: 'fa',
+      background_color: '#1B262C',
+      useWebmanifestExtension: false
+    },
+    meta: {
+      theme_color: '#1B262C'
+    }
   }
 }

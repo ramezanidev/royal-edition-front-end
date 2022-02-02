@@ -21,7 +21,7 @@ export default Vue.extend({
     animation: 'down',
     animationFlagTimeOut: null as any,
     routerHash: {
-      1: '#main',
+      1: '',
       2: '#services',
       3: '#about-us'
     }
@@ -72,6 +72,8 @@ export default Vue.extend({
         this.$nextTick(() => {
           this.step = Number(Object.entries(this.routerHash).find(item => item[1] === hash)?.[0] || 1)
         })
+      } else {
+        this.step = 1
       }
     }
   },

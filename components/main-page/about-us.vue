@@ -150,6 +150,10 @@
         </div>
       </template>
     </transition>
+    <!-- CopyRight LICENSE -->
+    <p class="text-white hidden md:flex absolute bottom-0 p-4 px-6 font-light w-[fit-content] rtl:text-left inset-x-0" dir="ltr">
+      Licensed by <a href="https://coilaco.com" class="mx-1" target="_blank" rel="noopener noreferrer"><strong class="font-bold">Coilaco</strong></a>
+    </p>
   </div>
 </template>
 

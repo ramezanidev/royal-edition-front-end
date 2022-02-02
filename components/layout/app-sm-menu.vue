@@ -68,8 +68,8 @@
           </NuxtLink>
         </nav>
         <!-- CopyRight LICENSE -->
-        <p class="text-white absolute bottom-0 p-4 font-light w-full rtl:text-left inset-x-0">
-          Licensed by <strong class="font-bold">Coilaco</strong>
+        <p class="text-white absolute bottom-0 p-4 font-light w-full rtl:text-left inset-x-0" dir="ltr">
+          Licensed by <a href="https://coilaco.com" class="mx-1" target="_blank" rel="noopener noreferrer"><strong class="font-bold">Coilaco</strong></a>
         </p>
       </div>
     </menu>
