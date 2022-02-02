@@ -21,7 +21,7 @@ export default Vue.extend({
     animation: 'down',
     animationFlagTimeOut: null as any,
     routerHash: {
-      1: '',
+      1: '#main',
       2: '#services',
       3: '#about-us'
     }

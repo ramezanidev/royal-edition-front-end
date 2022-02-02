@@ -6,7 +6,7 @@ export default Vue.extend({
       return [
         {
           lable: this.$i18n.t('links.mainPage'),
-          href: '/'
+          href: '/#main'
         },
         {
           lable: this.$i18n.t('links.serveces'),
