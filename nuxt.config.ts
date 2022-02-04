@@ -24,7 +24,10 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    './plugins/api'
+    './plugins/api',
+    './plugins/hammerjs.client.ts',
+    './plugins/breakpoint.client.ts',
+    './plugins/i18n.ts'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -51,17 +54,29 @@ export default {
     '@nuxtjs/i18n',
     '@nuxt/postcss8',
     '@nuxtjs/sitemap',
-    'cookie-universal-nuxt',
-    '@nuxtjs/axios'
+    ['cookie-universal-nuxt', { alias: 'cookiz' }],
+    '@nuxtjs/axios',
+    [
+      'nuxt-perfect-cache',
+      {
+        disable: true, // disabled in develop
+        appendHost: true,
+        ignoreConnectionErrors: true,
+        prefix: 'r-',
+        url: process.env.REDIS,
+        getCacheData (route:string) {
+          return ({
+            key: `page-${route}`,
+            expire: 60 /* seconds */
+          })
+        }
+      }
+    ]
+
   ],
 
   i18n: {
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root',
-      alwaysRedirect: true
-    },
+    detectBrowserLanguage: false,
     locales: [
       {
         code: 'en',
@@ -76,9 +91,9 @@ export default {
         name: 'Persian'
       }
     ],
-    lazy: true,
     langDir: 'lang/',
-    defaultLocale: 'fa'
+    defaultLocale: 'fa',
+    vueI18nLoader: true
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -102,15 +117,24 @@ export default {
     // proxy: true
   },
 
-  router: {
-    base: '/royal-edition-front-end/' /** GITHUB Page Base URL (repo name) **/
-  },
-
   typescript: {
     typeCheck: {
       eslint: {
         files: './**/*.{ts,js,vue}'
       }
+    }
+  },
+
+  pwa: {
+    manifest: {
+      name: 'Coilaco',
+      short_name: 'Coilaco',
+      lang: 'fa',
+      background_color: '#1B262C',
+      useWebmanifestExtension: false
+    },
+    meta: {
+      theme_color: '#1B262C'
     }
   }
 }

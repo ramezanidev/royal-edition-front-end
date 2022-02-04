@@ -2,3 +2,4 @@ node_modules/*
 .nuxt/*
 .eslintrc.js
 static/*
+dist/*
