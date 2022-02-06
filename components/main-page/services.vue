@@ -30,6 +30,7 @@
       </svg>
     </button>
     <button
+      v-show="step !== 1"
       class="
         absolute
         z-[1]
@@ -208,7 +209,6 @@ text-[1.2rem] sm:text-[1.5rem]                       whitespace-nowrap
       >
         <div
           :style="circleStyle"
-          style="box-shadow: 0 0 20px 10px inset #00000096"
           class="
             flex
             bg-white
@@ -220,6 +220,7 @@ text-[1.2rem] sm:text-[1.5rem]                       whitespace-nowrap
             aspect-square
             w-full
             md:h-full
+            shadow-[inset_0_0_8px_8px_rgb(0,0,0,45%)]
           "
         >
           <div class="absolute inset-0 circle-parent">

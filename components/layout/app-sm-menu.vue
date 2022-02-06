@@ -60,11 +60,11 @@
           <NuxtLink
             v-for="link in navBarLinks"
             :key="link.href"
-            class="select-none"
+            class="select-none nav-item"
             draggable="false"
             :to="localePath(link.href, $i18n.locale)"
           >
-            {{ link.lable }}
+            <span>{{ link.lable }}</span>
           </NuxtLink>
         </nav>
         <!-- CopyRight LICENSE -->
@@ -99,6 +99,11 @@ export default Vue.extend({
       }
     }
   },
+  watch: {
+    '$route.fullPath' () {
+      this.closeSmallMenu()
+    }
+  },
   methods: {
     closeSmallMenu () {
       this.isShowSmallMenu = false
@@ -108,7 +113,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.nav-item.nuxt-link-exact-active {
+.nav-item.nuxt-link-exact-active > span{
   @apply border-b-[3px] border-brand-4;
 }
 </style>
