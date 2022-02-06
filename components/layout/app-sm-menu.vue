@@ -8,11 +8,11 @@
     leave-class="translate-x-0"
   >
     <menu
-      v-if="isShowSmallMenu"
+      v-show="isShowSmallMenu"
       class="flex md:hidden fixed inset-0 z-10 transition-all"
       @click.self="closeSmallMenu"
     >
-      <div class="bg-brand-3 bg-opacity-90 backdrop-blur-[20px] backdrop-filter w-3/4 shadow p-4 pt-0 relative">
+      <div class="bg-brand-3 bg-opacity-90 w-3/4 shadow p-4 pt-0 relative" style="backdrop-filter: blur(20px)">
         <div class="h-[70px] flex items-center justify-between">
           <button class="text-white" @click="closeSmallMenu">
             <svg

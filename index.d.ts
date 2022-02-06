@@ -3,6 +3,9 @@ declare module '@nuxt/types' {
   interface Context {
     $api: NuxtAxiosInstance,
   }
+  interface NuxtAppOptions {
+    $api: NuxtAxiosInstance,
+  }
 }
 
 declare module 'vue/types/vue' {
@@ -16,5 +19,6 @@ declare module 'vue/types/vue' {
   interface Vue {
     $breakPoint(breakPoints: BreakPoints): BreakPointsObject
     $hammer(element: HTMLElement | SVGElement, options?: HammerOptions | undefined): HammerManager
+    $api: NuxtAxiosInstance
   }
 }

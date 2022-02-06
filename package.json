@@ -7,7 +7,8 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint": "eslint --fix --ext .js,.ts,.vue ."
+    "lint": "eslint --fix --ext .js,.ts,.vue .",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
@@ -18,6 +19,7 @@
     "cookie-universal-nuxt": "^2.1.5",
     "core-js": "^3.19.3",
     "hammerjs": "^2.0.8",
+    "lottie-web": "^5.8.1",
     "nuxt": "^2.15.8",
     "nuxt-perfect-cache": "^1.1.2",
     "vue-typed-mixins": "^0.2.0"
@@ -33,6 +35,8 @@
     "autoprefixer": "^10.4.0",
     "eslint": "^8.7.0",
     "postcss": "^8.4.5",
+    "prettier": "^2.5.1",
+    "prettier-plugin-tailwindcss": "^0.1.5",
     "sass": "^1.49.0",
     "sass-loader": "10",
     "tailwindcss": "^3.0.7"

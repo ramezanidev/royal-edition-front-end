@@ -37,7 +37,7 @@
                 @focus="onFocusField"
                 @blur="onBlurField"
               >
-              <span class="my-1 flex text-sm font-bold text-red-500">Lorem ipsum dolor</span>
+              <span class="mb-1 flex justify-center text-sm font-bold bg-[#EC4444] text-white w-full p-0.5 mt-3 rounded-lg">Lorem ipsum dolor</span>
             </fieldset>
             <fieldset v-else-if="step === 2" class="w-full">
               <input
@@ -49,7 +49,7 @@
                 @focus="onFocusField"
                 @blur="onBlurField"
               >
-              <span class="my-1 flex text-sm font-bold text-red-500">Lorem ipsum dolor</span>
+              <span class="mb-1 flex justify-center text-sm font-bold bg-[#EC4444] text-white w-full p-0.5 mt-3 rounded-lg">Lorem ipsum dolor</span>
             </fieldset>
           </transition>
           <button
@@ -73,7 +73,18 @@
       <div
         v-show="isShowImageContainer"
         class="flex h-1/2 w-full rounded-[25px] bg-white md:h-full md:w-1/2"
-      />
+      >
+        <Lottie
+          path="/coilaco-login.json"
+          :loop="false"
+          :auto-play="true"
+          :loop-delay-min="2.5"
+          :loop-delay-max="5"
+          :speed="1"
+          :width="256"
+          :height="256"
+        />
+      </div>
     </transition>
   </div>
 </template>
@@ -81,9 +92,11 @@
 <script lang="ts">
 import Vue from 'vue'
 import tailwindConfig from '@/tailwind.config'
+import lottie from '@/components/lottie.vue'
 
 export default Vue.extend({
   name: 'LoginPage',
+  components: { lottie },
   data: () => ({
     // flags
     isShowImageContainer: true,
