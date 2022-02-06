@@ -1,10 +1,16 @@
 <template>
-  <div class="w-full h-full overflow-hidden absolute inset-0 rounded-[25px] p-[40px] xl:px-[60px] 2xl:px-[80px]">
+  <div
+    class="absolute inset-0 h-full w-full overflow-hidden rounded-[25px] p-[40px] xl:px-[60px] 2xl:px-[80px]"
+  >
     <transition :name="animation">
       <MainPageIntroduction v-show="step === 1" @next="nextSection" />
     </transition>
     <transition :name="animation">
-      <MainPageServices v-show="step === 2" @previous="previousSection" @next="nextSection" />
+      <MainPageServices
+        v-show="step === 2"
+        @previous="previousSection"
+        @next="nextSection"
+      />
     </transition>
     <transition :name="animation">
       <MainPageAboutUs v-show="step === 3" @previous="previousSection" />
@@ -27,25 +33,26 @@ export default Vue.extend({
     }
   }),
   computed: {
-    step: { /* active section */
+    step: {
+      /* active section */
       set (value) {
         this.$store.commit('mainPageStep/setStep', value)
       },
-      get ():number {
+      get (): number {
         return this.$store.getters['mainPageStep/step']
       }
     },
     isAnimation: {
-      set (value:boolean) {
+      set (value: boolean) {
         this.$store.commit('mainPageStep/setAnimation', value)
       },
-      get ():boolean {
+      get (): boolean {
         return this.$store.getters['mainPageStep/isAnimation']
       }
     }
   },
   watch: {
-    step (newValue:number, oldValue:number) {
+    step (newValue: number, oldValue: number) {
       // set animation name
       this.animation = newValue > oldValue ? 'up' : 'down'
       // stop change sections
@@ -70,7 +77,11 @@ export default Vue.extend({
       const hash = this.$route.hash
       if (hash) {
         this.$nextTick(() => {
-          this.step = Number(Object.entries(this.routerHash).find(item => item[1] === hash)?.[0] || 1)
+          this.step = Number(
+            Object.entries(this.routerHash).find(
+              item => item[1] === hash
+            )?.[0] || 1
+          )
         })
       } else {
         this.step = 1
@@ -81,7 +92,11 @@ export default Vue.extend({
     const hash = this.$route.hash
     if (hash) {
       this.$nextTick(() => {
-        const step = Number(Object.entries(this.routerHash).find(item => item[1] === hash)?.[0] || 1)
+        const step = Number(
+          Object.entries(this.routerHash).find(
+            item => item[1] === hash
+          )?.[0] || 1
+        )
         if (step && step !== 1) {
           this.step = step
         }
@@ -100,31 +115,33 @@ export default Vue.extend({
 </script>
 
 <style>
-
-.down-enter-active, .down-leave-active {
+.down-enter-active,
+.down-leave-active {
   transition: 1000ms;
 }
-.down-enter{
+.down-enter {
   transform: translateY(-100%);
 }
-.down-enter-to, .down-leave {
+.down-enter-to,
+.down-leave {
   transform: translateY(0%);
 }
 .down-leave-to {
   transform: translateY(100%);
 }
 
-.up-enter-active, .up-leave-active {
+.up-enter-active,
+.up-leave-active {
   transition: 1000ms;
 }
-.up-enter{
+.up-enter {
   transform: translateY(100%);
 }
-.up-enter-to, .up-leave {
+.up-enter-to,
+.up-leave {
   transform: translateY(0%);
 }
 .up-leave-to {
   transform: translateY(-100%);
 }
-
 </style>

@@ -1,20 +1,12 @@
 <template>
   <div
     ref="parentElement"
-    class="w-full h-full flex items-center absolute inset-0"
+    class="absolute inset-0 flex h-full w-full items-center"
     @wheel="onScroll"
   >
     <!-- navigate -->
     <button
-      class="
-        absolute
-        z-[1]
-        top-1/2
-        ltr:right-3
-        rtl:left-3 rtl:transform rtl:rotate-180
-        inline-block
-        md:hidden
-      "
+      class="absolute top-1/2 z-[1] inline-block ltr:right-3 rtl:left-3 rtl:rotate-180 rtl:transform md:hidden"
       @click.stop="nextSlide"
     >
       <svg
@@ -31,15 +23,7 @@
     </button>
     <button
       v-show="step !== 1"
-      class="
-        absolute
-        z-[1]
-        top-1/2
-        ltr:left-3
-        rtl:right-3 rtl:transform rtl:rotate-180
-        inline-block
-        md:hidden
-      "
+      class="absolute top-1/2 z-[1] inline-block ltr:left-3 rtl:right-3 rtl:rotate-180 rtl:transform md:hidden"
       @click.stop="previousSlide"
     >
       <svg
@@ -56,12 +40,15 @@
     </button>
     <!-- scroll to top -->
     <button
-      :class="[{
-        'md:left-6 md:right-auto':buttonPosition.x === 'left'
-      }, {
-        'md:right-6 md:left-auto':buttonPosition.x === 'right'
-      }]"
-      class="bg-gradient-to-b md:flex hidden shadow-lg backdrop-blur-[5px] backdrop-filter from-[#003050bd] to-[#0f4c75c0] absolute rounded-full items-center justify-center md:bottom-4 z-[1] top-3 left-1/2 transform -translate-x-1/2 md:translate-x-0 md:w-12 md:h-12 w-10 h-10"
+      :class="[
+        {
+          'md:left-6 md:right-auto': buttonPosition.x === 'left',
+        },
+        {
+          'md:right-6 md:left-auto': buttonPosition.x === 'right',
+        },
+      ]"
+      class="absolute top-3 left-1/2 z-[1] hidden h-10 w-10 -translate-x-1/2 transform items-center justify-center rounded-full bg-gradient-to-b from-[#003050bd] to-[#0f4c75c0] shadow-lg backdrop-blur-[5px] backdrop-filter md:bottom-4 md:flex md:h-12 md:w-12 md:translate-x-0"
       @click.stop="previous"
     >
       <svg
@@ -70,37 +57,21 @@
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M13.7924 16.9706C13.3921 17.4906 12.6079 17.4906 12.2076 16.9706L0.382967 1.60999C-0.12323 0.952425 0.345533 0 1.17537 0L24.8246 0C25.6545 0 26.1232 0.952425 25.617 1.60999L13.7924 16.9706Z" fill="white" />
+        <path
+          d="M13.7924 16.9706C13.3921 17.4906 12.6079 17.4906 12.2076 16.9706L0.382967 1.60999C-0.12323 0.952425 0.345533 0 1.17537 0L24.8246 0C25.6545 0 26.1232 0.952425 25.617 1.60999L13.7924 16.9706Z"
+          fill="white"
+        />
       </svg>
     </button>
     <!-- body -->
     <div
-      class="
-        absolute
-        flex flex-col
-        md:flex-row
-        top-0
-        inset-x-0
-        w-full
-        md:w-auto
-        h-full
-        overflow-hidden
-        px-10
-        md:px-0 md:py-12
-      "
+      class="absolute inset-x-0 top-0 flex h-full w-full flex-col overflow-hidden px-10 md:w-auto md:flex-row md:px-0 md:py-12"
     >
       <div class="aspect-[2/1] md:aspect-[1/2]">
         1
       </div>
       <div
-        class="
-          flex flex-auto
-          py-[40px]
-          md:py-0
-          xl:px-[60px]
-          md:px-[40px]
-          overflow-hidden
-        "
+        class="flex flex-auto overflow-hidden py-[40px] md:py-0 md:px-[40px] xl:px-[60px]"
       >
         <transition
           mode="out-in"
@@ -115,67 +86,30 @@
           @before-enter="isAnimation = true"
         >
           <template v-for="i in 6">
-            <div v-if="i === step" :key="i" class="w-full h-full">
+            <div v-if="i === step" :key="i" class="h-full w-full">
               <div
-                class="
-                  w-full
-                  h-full
-                  flex flex-col-reverse
-                  justify-center
-                  md:grid
-                  grid-cols-2
-                  gap-x-6
-                  items-center
-                "
+                class="flex h-full w-full grid-cols-2 flex-col-reverse items-center justify-center gap-x-6 md:grid"
               >
                 <div
-                  class="
-                    col-start-1 col-end-2
-                    text-center
-                    md:rtl:text-right md:ltr:text-left
-                    sm:mt-8 mt-4
-                    md:mt-0
-                  "
+                  class="col-start-1 col-end-2 mt-4 text-center sm:mt-8 md:mt-0 md:ltr:text-left md:rtl:text-right"
                 >
                   <h2
-                    class="
-text-[1.2rem] sm:text-[1.5rem]                       whitespace-nowrap
-                      md:text-[2.3rem]
-                      xl:text-[2.8rem]
-                    sm:mb-6 mb-4
-                      md:mb-10
-                      font-extrabold
-                      text-brand-3
-                    "
+                    class="mb-4 whitespace-nowrap text-[1.2rem] font-extrabold text-brand-3 sm:mb-6 sm:text-[1.5rem] md:mb-10 md:text-[2.3rem] xl:text-[2.8rem]"
                   >
-                    {{ $t("title") + " " + i }}
+                    {{ $t('title') + ' ' + i }}
                   </h2>
                   <p
-                    class="
-                      text-brand-5 text-sm sm:text-lg
-                      xl:text-xl
-                      mb-8
-                      md:mb-12
-                      max-w-xl
-                    "
+                    class="mb-8 max-w-xl text-sm text-brand-5 sm:text-lg md:mb-12 xl:text-xl"
                   >
-                    {{ $t("description") }}
+                    {{ $t('description') }}
                   </p>
                 </div>
-                <div class="w-full md:w-auto flex md:block justify-center">
+                <div class="flex w-full justify-center md:block md:w-auto">
                   <div
-                    class="
-                      overflow-hidden
-                      w-full
-                      md:ltr:ml-auto md:rtl:mr-auto
-                      flex
-                      items-center
-                      xl:max-w-[580px]
-                      max-w-[500px]
-                    "
+                    class="flex w-full max-w-[500px] items-center overflow-hidden md:ltr:ml-auto md:rtl:mr-auto xl:max-w-[580px]"
                   >
                     <img
-                      class="w-full my-auto"
+                      class="my-auto w-full"
                       draggable="false"
                       src="/sample-image.png"
                       alt=""
@@ -189,84 +123,41 @@ text-[1.2rem] sm:text-[1.5rem]                       whitespace-nowrap
       </div>
       <!-- circle -->
       <div
-        class="
-          transform
-          w-full
-          md:w-auto
-          h-auto
-          -translate-y-1/2
-          md:translate-y-0
-          ltr:md:-translate-x-1/2
-          rtl:md:translate-x-1/2
-          absolute
-          ltr:left-0
-          rtl:right-0
-          top-0
-          md:h-full
-          px-8
-          md:px-0 md:py-8
-        "
+        class="absolute top-0 h-auto w-full -translate-y-1/2 transform px-8 ltr:left-0 rtl:right-0 md:h-full md:w-auto md:translate-y-0 md:px-0 md:py-8 ltr:md:-translate-x-1/2 rtl:md:translate-x-1/2"
       >
         <div
           :style="circleStyle"
-          class="
-            flex
-            bg-white
-            transition-transform
-            duration-1000
-            ease-[cubic-bezier(1,-0.1,0.27,0.51)]
-            rounded-full
-            relative
-            aspect-square
-            w-full
-            md:h-full
-            shadow-[inset_0_0_8px_8px_rgb(0,0,0,45%)]
-          "
+          class="relative flex aspect-square w-full rounded-full bg-white shadow-[inset_0_0_8px_8px_rgb(0,0,0,45%)] transition-transform duration-1000 ease-[cubic-bezier(1,-0.1,0.27,0.51)] md:h-full"
         >
-          <div class="absolute inset-0 circle-parent">
+          <div class="circle-parent absolute inset-0">
             <div
               v-for="i in 6"
               :key="i"
               :class="{
-                '!z-[2]':
-                  (step === i + 1) | (step === i - 1),
+                '!z-[2]': (step === i + 1) | (step === i - 1),
               }"
             >
               <button
                 :class="[
                   {
-                    '!opacity-100 h-md:!text-base !text-xs sm:!text-sm !shadow-lg !pointer-events-auto !bg-brand-6 h-md:!py-2 !p-1 h-md:!px-4 !px-2':
+                    '!pointer-events-auto !bg-brand-6 !p-1 !px-2 !text-xs !opacity-100 !shadow-lg sm:!text-sm h-md:!py-2 h-md:!px-4 h-md:!text-base':
                       step === i,
                   },
                   {
-                    'md:!opacity-100 md:!pointer-events-auto':
+                    'md:!pointer-events-auto md:!opacity-100':
                       (step === i + 1) | (step === i - 1),
                   },
                 ]"
-                class="
-                  bg-brand-8 transform ltr:-rotate-90 rtl:rotate-90
-                  text-xs md:!transform-none
-                  h-md:text-sm
-                  transition-all
-                  opacity-0
-                  pointer-events-none
-                  duration-1000
-                  delay-300
-                  text-white
-                  py-1
-                  px-3
-                  rounded-full
-                  col-start-2
-                  h-md:!mx-auto
-                  font-bold w-[calc(100%-theme(spacing.12))] h-md:w-auto ml-9 rtl:mr-9
-                "
+                class="pointer-events-none col-start-2 ml-9 w-[calc(100%-theme(spacing.12))] transform rounded-full bg-brand-8 py-1 px-3 text-xs font-bold text-white opacity-0 transition-all delay-300 duration-1000 ltr:-rotate-90 rtl:mr-9 rtl:rotate-90 md:!transform-none h-md:!mx-auto h-md:w-auto h-md:text-sm"
                 @click="step = i"
               >
                 Lorem ipsum dolor {{ i }}
               </button>
             </div>
           </div>
-          <div class="bg-[#C4C4C4] h-md:w-16 h-md:h-16 w-14 h-14 rounded-full m-auto" />
+          <div
+            class="m-auto h-14 w-14 rounded-full bg-[#C4C4C4] h-md:h-16 h-md:w-16"
+          />
         </div>
       </div>
     </div>
@@ -353,9 +244,7 @@ export default mixins(sectionNavigate).extend({
     circleStyle () {
       return {
         // @ts-ignore
-        transform: `rotate(${this.deg}${
-          (this.step - 1) * 45
-        }deg)`
+        transform: `rotate(${this.deg}${(this.step - 1) * 45}deg)`
       }
     },
     buttonPosition () {
@@ -395,10 +284,10 @@ export default mixins(sectionNavigate).extend({
 
 <style lang="scss">
 .circle-parent > div {
-  @apply w-full h-auto grid grid-cols-2 justify-end py-2 absolute top-1/2 transform -translate-y-1/2;
+  @apply absolute top-1/2 grid h-auto w-full -translate-y-1/2 transform grid-cols-2 justify-end py-2;
 }
 
-html[dir="rtl"] .circle-parent {
+html[dir='rtl'] .circle-parent {
   & > div:nth-of-type(1) {
     transform: translateY(-50%) rotate(270deg);
   }
@@ -419,7 +308,7 @@ html[dir="rtl"] .circle-parent {
   }
 }
 
-html[dir="ltr"] .circle-parent {
+html[dir='ltr'] .circle-parent {
   & > div:nth-of-type(1) {
     transform: translateY(-50%) rotate(90deg);
   }
@@ -441,7 +330,7 @@ html[dir="ltr"] .circle-parent {
 }
 
 @screen md {
-  html[dir="rtl"] .circle-parent {
+  html[dir='rtl'] .circle-parent {
     & > div:nth-of-type(1) {
       transform: translateY(-50%) rotate(0deg);
     }
@@ -462,7 +351,7 @@ html[dir="ltr"] .circle-parent {
     }
   }
 
-  html[dir="ltr"] .circle-parent {
+  html[dir='ltr'] .circle-parent {
     & > div:nth-of-type(1) {
       transform: translateY(-50%) rotate(0deg);
     }
@@ -474,10 +363,10 @@ html[dir="ltr"] .circle-parent {
     }
     & > div:nth-of-type(4) {
       transform: translateY(-50%) rotate(135deg);
-      }
+    }
     & > div:nth-of-type(5) {
       transform: translateY(-50%) rotate(180deg);
-      }
+    }
     & > div:nth-of-type(6) {
       transform: translateY(-50%) rotate(225deg);
     }

@@ -66,15 +66,15 @@ export default Vue.extend({
     this.init()
   },
   methods: {
-    async loadJsonData (path:string):Promise<any> {
+    async loadJsonData (path: string): Promise<any> {
       return await this.$api.get(path).then((response) => {
         return response.data
       })
     },
     async init () {
       this.style = {
-        width: (this.width !== -1) ? `${this.width}px` : '100%',
-        height: (this.height !== -1) ? `${this.height}px` : '100%',
+        width: this.width !== -1 ? `${this.width}px` : '100%',
+        height: this.height !== -1 ? `${this.height}px` : '100%',
         overflow: 'hidden',
         margin: '0 auto'
       }
@@ -98,7 +98,7 @@ export default Vue.extend({
         this.executeLoop()
       }
     },
-    getRandomInt (min:number, max:number) {
+    getRandomInt (min: number, max: number) {
       min = Math.ceil(min)
       max = Math.floor(max)
       return Math.floor(Math.random() * (max - min)) + min

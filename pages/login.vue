@@ -37,7 +37,9 @@
                 @focus="onFocusField"
                 @blur="onBlurField"
               >
-              <span class="mb-1 flex justify-center text-sm font-bold bg-[#EC4444] text-white w-full p-0.5 mt-3 rounded-lg">Lorem ipsum dolor</span>
+              <span
+                class="mb-1 mt-3 flex w-full justify-center rounded-lg bg-[#EC4444] p-0.5 text-sm font-bold text-white"
+              >Lorem ipsum dolor</span>
             </fieldset>
             <fieldset v-else-if="step === 2" class="w-full">
               <input
@@ -49,7 +51,9 @@
                 @focus="onFocusField"
                 @blur="onBlurField"
               >
-              <span class="mb-1 flex justify-center text-sm font-bold bg-[#EC4444] text-white w-full p-0.5 mt-3 rounded-lg">Lorem ipsum dolor</span>
+              <span
+                class="mb-1 mt-3 flex w-full justify-center rounded-lg bg-[#EC4444] p-0.5 text-sm font-bold text-white"
+              >Lorem ipsum dolor</span>
             </fieldset>
           </transition>
           <button

@@ -2,11 +2,11 @@
   <div class="relative">
     <!-- lable -->
     <div
-      class="flex select-none items-center cursor-pointer"
+      class="flex cursor-pointer select-none items-center"
       @click.stop="show = !show"
     >
       <span
-        class="uppercase pt-1 flex px-2 text-[18px] xl:text-[20px] text-white"
+        class="flex px-2 pt-1 text-[18px] uppercase text-white xl:text-[20px]"
       >{{ selected }}</span>
       <span class="text-white">
         <svg
@@ -35,21 +35,13 @@
       <div
         v-if="show"
         v-click-outside="close"
-        class="
-          absolute
-          rounded-[15px]
-          overflow-hidden
-          bg-white
-          min-w-[60px]
-          top-full
-          z-10
-        "
+        class="absolute top-full z-10 min-w-[60px] overflow-hidden rounded-[15px] bg-white"
       >
         <div
           v-for="option in options"
           :key="option"
-          :class="{ 'text-white bg-brand-4': selected === option }"
-          class="w-full cursor-pointer select-none text-center py-1 uppercase"
+          :class="{ 'bg-brand-4 text-white': selected === option }"
+          class="w-full cursor-pointer select-none py-1 text-center uppercase"
           @click="onChange(option)"
         >
           {{ option }}
@@ -68,9 +60,9 @@ export default Vue.extend({
       bind (el, binding, vnode) {
         // @ts-ignore
         (el as HTMLElement).clickOutsideEvent = function (event) {
-        // here I check that click was outside the el and his childrens
+          // here I check that click was outside the el and his childrens
           if (!(el === event.target || el.contains(event.target as any))) {
-          // @ts-ignore
+            // @ts-ignore
             vnode.context?.[binding.expression](event)
           }
         }
@@ -78,7 +70,7 @@ export default Vue.extend({
         document.body.addEventListener('click', el.clickOutsideEvent)
       },
       unbind (el) {
-      // @ts-ignore
+        // @ts-ignore
         document.body.removeEventListener('click', el.clickOutsideEvent)
       }
     }

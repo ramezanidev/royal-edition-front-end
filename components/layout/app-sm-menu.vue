@@ -9,11 +9,14 @@
   >
     <menu
       v-show="isShowSmallMenu"
-      class="flex md:hidden fixed inset-0 z-10 transition-all"
+      class="fixed inset-0 z-10 flex transition-all md:hidden"
       @click.self="closeSmallMenu"
     >
-      <div class="bg-brand-3 bg-opacity-90 w-3/4 shadow p-4 pt-0 relative" style="backdrop-filter: blur(20px)">
-        <div class="h-[70px] flex items-center justify-between">
+      <div
+        class="relative w-3/4 bg-brand-3 bg-opacity-90 p-4 pt-0 shadow"
+        style="backdrop-filter: blur(20px)"
+      >
+        <div class="flex h-[70px] items-center justify-between">
           <button class="text-white" @click="closeSmallMenu">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -23,13 +26,26 @@
               class="bi bi-x-lg"
               viewBox="0 0 16 16"
             >
-              <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
-              <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" />
+              <path
+                fill-rule="evenodd"
+                d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
+              />
             </svg>
           </button>
-          <img src="/logo.png" class="w-40 select-none" draggable="false" alt="coilaco">
+          <img
+            src="/logo.png"
+            class="w-40 select-none"
+            draggable="false"
+            alt="coilaco"
+          >
         </div>
-        <div class="justify-center mt-4 gap-x-3 flex rtl:flex-row-reverse w-full">
+        <div
+          class="mt-4 flex w-full justify-center gap-x-3 rtl:flex-row-reverse"
+        >
           <!-- Account links -->
           <button>
             <svg
@@ -49,18 +65,22 @@
             </svg>
           </button>
           <!-- change Lang -->
-          <UtilityAppSelect :selected="$i18n.locale" :options="$i18n.locales.map((x) => x.code)" @change="$router.push(switchLocalePath($event))" />
+          <UtilityAppSelect
+            :selected="$i18n.locale"
+            :options="$i18n.locales.map((x) => x.code)"
+            @change="$router.push(switchLocalePath($event))"
+          />
         </div>
         <!-- divider -->
-        <div class="w-full my-6 h-0 border border-white opacity-50" />
+        <div class="my-6 h-0 w-full border border-white opacity-50" />
         <!-- nav items -->
         <nav
-          class="flex gap-y-4 flex-col text-white text-[18px] xl:text-[20px]"
+          class="flex flex-col gap-y-4 text-[18px] text-white xl:text-[20px]"
         >
           <NuxtLink
             v-for="link in navBarLinks"
             :key="link.href"
-            class="select-none nav-item"
+            class="nav-item select-none"
             draggable="false"
             :to="localePath(link.href, $i18n.locale)"
           >
@@ -68,8 +88,17 @@
           </NuxtLink>
         </nav>
         <!-- CopyRight LICENSE -->
-        <p class="text-white absolute bottom-0 p-4 font-light w-full rtl:text-left inset-x-0" dir="ltr">
-          Licensed by <a href="https://coilaco.com" class="mx-1" target="_blank" rel="noopener noreferrer"><strong class="font-bold">Coilaco</strong></a>
+        <p
+          class="absolute inset-x-0 bottom-0 w-full p-4 font-light text-white rtl:text-left"
+          dir="ltr"
+        >
+          Licensed by
+          <a
+            href="https://coilaco.com"
+            class="mx-1"
+            target="_blank"
+            rel="noopener noreferrer"
+          ><strong class="font-bold">Coilaco</strong></a>
         </p>
       </div>
     </menu>
@@ -91,7 +120,7 @@ export default Vue.extend({
   },
   computed: {
     isShowSmallMenu: {
-      get ():boolean {
+      get (): boolean {
         return this.value
       },
       set (value: boolean) {
@@ -113,7 +142,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.nav-item.nuxt-link-exact-active > span{
+.nav-item.nuxt-link-exact-active > span {
   @apply border-b-[3px] border-brand-4;
 }
 </style>
