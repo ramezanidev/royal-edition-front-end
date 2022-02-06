@@ -4,6 +4,7 @@
     <div class="rounded-[25px] flex-auto flex items-center relative bg-gradient-radial from-brand-1 to-brand-2" style="height:calc(100% - 100px)">
       <Nuxt />
       <button
+        v-if="showButton"
         :class="[{
           'md:left-6 md:right-auto':buttonPosition.x === 'left'
         }, {
@@ -47,6 +48,9 @@ export default Vue.extend({
     },
     buttonPosition () {
       return this.$store.getters['scrollToButton/position'] as RootState['position']
+    },
+    showButton () {
+      return this.$route.path === '/' // show only main-page
     }
   },
   watch: {

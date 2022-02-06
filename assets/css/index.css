@@ -1,5 +1,14 @@
-@import url("~/assets/fonts/index.css");
+@import url('~/assets/fonts/index.css');
 
 body {
-    font-family: KalamehWeb;
+  font-family: KalamehWeb;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
 }

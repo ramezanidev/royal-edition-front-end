@@ -55,23 +55,23 @@ export default {
     '@nuxt/postcss8',
     '@nuxtjs/sitemap',
     ['cookie-universal-nuxt', { alias: 'cookiz' }],
-    '@nuxtjs/axios',
-    [
-      'nuxt-perfect-cache',
-      {
-        disable: true, // disabled in develop
-        appendHost: true,
-        ignoreConnectionErrors: true,
-        prefix: 'r-',
-        url: process.env.REDIS,
-        getCacheData (route:string) {
-          return ({
-            key: `page-${route}`,
-            expire: 60 /* seconds */
-          })
-        }
-      }
-    ]
+    '@nuxtjs/axios'
+    // [
+    //   'nuxt-perfect-cache',
+    //   {
+    //     disable: true, // disabled in develop
+    //     appendHost: true,
+    //     ignoreConnectionErrors: true,
+    //     prefix: 'r-',
+    //     url: process.env.REDIS,
+    //     getCacheData (route:string) {
+    //       return ({
+    //         key: `page-${route}`,
+    //         expire: 60 /* seconds */
+    //       })
+    //     }
+    //   }
+    // ]
 
   ],
 
@@ -103,6 +103,9 @@ export default {
         tailwindcss: {},
         autoprefixer: {}
       }
+    },
+    analyze: {
+      analyzerMode: 'static'
     }
   },
 
@@ -136,5 +139,7 @@ export default {
     meta: {
       theme_color: '#1B262C'
     }
-  }
+  },
+
+  eslint: { cache: false }
 }

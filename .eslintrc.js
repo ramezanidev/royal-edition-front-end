@@ -1,10 +1,10 @@
 module.exports = {
-  extends: ["@nuxtjs/eslint-config-typescript"],
+  extends: ['@nuxtjs/eslint-config-typescript'],
   rules: {
-    "vue/multi-word-component-names": [
-      "error",
+    'vue/multi-word-component-names': [
+      'error',
       {
-        ignores: ["default"],
+        ignores: ['default', 'login', 'lottie'],
       },
     ],
   },
