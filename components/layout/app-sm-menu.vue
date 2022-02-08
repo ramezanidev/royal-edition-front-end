@@ -9,12 +9,11 @@
   >
     <menu
       v-show="isShowSmallMenu"
-      class="fixed inset-0 z-10 flex transition-all md:hidden"
+      class="fixed inset-0 z-10 flex transition-all md:hidden will-change-[opacity,transform,display]"
       @click.self="closeSmallMenu"
     >
       <div
-        class="relative w-3/4 bg-brand-3 bg-opacity-90 p-4 pt-0 shadow"
-        style="backdrop-filter: blur(20px)"
+        class="relative w-3/4 bg-brand-3 bg-opacity-[0.97] p-4 pt-0 shadow will-change-[opacity]"
       >
         <div class="flex h-[70px] items-center justify-between">
           <button class="text-white" @click="closeSmallMenu">
