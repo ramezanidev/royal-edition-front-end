@@ -9,7 +9,7 @@
   >
     <menu
       v-show="isShowSmallMenu"
-      class="fixed inset-0 z-10 flex transition-all md:hidden will-change-[opacity,transform,display]"
+      class="fixed inset-0 z-10 flex transition-all will-change-[opacity,transform,display] md:hidden"
       @click.self="closeSmallMenu"
     >
       <div
