@@ -80,10 +80,8 @@
       >
         <Lottie
           path="/coilaco-login.json"
-          :loop="false"
+          :loop="true"
           :auto-play="true"
-          :loop-delay-min="2.5"
-          :loop-delay-max="5"
           :speed="1"
           :width="256"
           :height="256"

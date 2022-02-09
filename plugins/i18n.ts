@@ -1,9 +1,9 @@
 import type { Plugin } from '@nuxt/types'
 
-const plugin: Plugin = ({ app }) => {
+const plugin: Plugin = ({ app, redirect }) => {
   const locale = app.$cookiz.get('lang')
-  if (locale) {
-    app.i18n.setLocale(locale) // setLocal user browser cookies
+  if (locale && locale !== app.i18n.locale) {
+    redirect(app.switchLocalePath(locale)) // setLocal user browser cookies
   }
 
   app.i18n.onBeforeLanguageSwitch = (_, newLang) => {
