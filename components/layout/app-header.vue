@@ -3,7 +3,7 @@
     class="flex h-[70px] items-center justify-between rtl:flex-row-reverse md:h-[75px] xl:h-[80px] 2xl:h-[100px]"
   >
     <div>
-      <NuxtLink to="/">
+      <NuxtLink :to="localePath('/')">
         <img
           v-show="!isShowSmallMenu"
           src="/logo.png"

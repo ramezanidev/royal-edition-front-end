@@ -1,8 +1,10 @@
 <template>
-  <div class="w-full h-full bg-brand-mag-2">
-    <MagLayoutHeader />
-    <Nuxt class="pt-16 my-2" />
-    <MagLayoutFootrer />
+  <div :class="{ dark: darkMode }" class="h-full w-full">
+    <div class="bg-[#f9f9ff] transition-colors dark:bg-brand-mag-2">
+      <MagLayoutHeader />
+      <Nuxt class="pt-16" />
+      <MagLayoutFootrer />
+    </div>
   </div>
 </template>
 
@@ -15,9 +17,22 @@ export default Vue.extend({
   components: {
     MagLayoutFootrer,
     MagLayoutHeader
+  },
+  head () {
+    return {
+      htmlAttrs: {
+        dir: this.$i18n.t('dir') as string
+      }
+    }
+  },
+  computed: {
+    darkMode () {
+      return this.$store.getters.darkMode as boolean
+    }
+  },
+  async beforeCreate () {
+    await this.$store.dispatch('init')
   }
 })
 </script>
-<style>
-
-</style>
+<style></style>
