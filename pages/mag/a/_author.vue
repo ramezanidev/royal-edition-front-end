@@ -1,7 +1,7 @@
 <template>
   <div class="!pt-32 pb-10 px-2">
     <div class="w-full flex flex-col items-center">
-      <img class="w-40 md:w-48 rounded-full" src="/mag/author.jpg" alt="author">
+      <img class="w-40 md:w-48 h-40 md:h-48 object-cover object-center rounded-full" src="/mag/author.jpg" alt="author">
       <h1 class="dark:text-white text-black py-4 font-bold text-lg">
         سلام، من فلان فلانی نسب هستم!
       </h1>
@@ -42,6 +42,7 @@
         </a>
       </div>
     </div>
+    <MagItems :sm="1" :md="2" :lg="2" />
   </div>
 </template>
 

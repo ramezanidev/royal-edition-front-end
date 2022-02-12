@@ -22,12 +22,29 @@ export default Vue.extend({
     return {
       htmlAttrs: {
         dir: this.$i18n.t('dir') as string
-      }
+      },
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/x-icon',
+          href: '/mag/mag-favicon.ico'
+        }
+      ]
     }
   },
   computed: {
     darkMode () {
       return this.$store.getters.darkMode as boolean
+    }
+  },
+  created () {
+    if (process.client) {
+      this.$nextTick(() => {
+      document.querySelector<HTMLElement>('#__nuxt')!.style.height = 'auto'
+      document.querySelector<HTMLElement>('#__layout')!.style.height = 'auto'
+      document.querySelector<HTMLElement>('html')!.style.height = 'auto'
+      document.querySelector<HTMLElement>('body')!.style.height = 'auto'
+      })
     }
   },
   async beforeCreate () {

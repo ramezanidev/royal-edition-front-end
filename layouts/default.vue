@@ -77,6 +77,16 @@ export default Vue.extend({
       immediate: true
     }
   },
+  created () {
+    if (process.client) {
+      this.$nextTick(() => {
+      document.querySelector<HTMLElement>('#__nuxt')!.style.height = '100%'
+      document.querySelector<HTMLElement>('#__layout')!.style.height = '100%'
+      document.querySelector<HTMLElement>('html')!.style.height = '100%'
+      document.querySelector<HTMLElement>('body')!.style.height = '100%'
+      })
+    }
+  },
   methods: {
     nextSection () {
       this.$store.commit('mainPageStep/increase')
@@ -101,6 +111,6 @@ html,
 body,
 #__nuxt,
 #__layout {
-  @apply h-full w-full;
+  @apply w-full h-full;
 }
 </style>

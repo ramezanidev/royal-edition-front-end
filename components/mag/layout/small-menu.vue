@@ -36,7 +36,7 @@
             </svg>
           </button>
           <img
-            :src="darkMode ? `/mag/dark-mag.png` : `/mag/light-mag.png`"
+            :src="$store.getters.darkMode ? `/mag/dark-mag.png` : `/mag/light-mag.png`"
             class="w-40 select-none"
             draggable="false"
             alt="coilaco"
@@ -109,7 +109,7 @@ import Vue from 'vue'
 import nav from '@/mixins/nav'
 
 export default Vue.extend({
-  name: 'LayoutAppSmMenu',
+  name: 'MagAppSmMenu',
   mixins: [nav],
   props: {
     value: {
@@ -125,20 +125,10 @@ export default Vue.extend({
       set (value: boolean) {
         this.$emit('input', value)
       }
-    },
-    darkMode: {
-      get () {
-        return this.$store.getters.darkMode as boolean
-      },
-      set (newValue: boolean) {
-        this.$store.commit('setDarkMode', newValue)
-      }
     }
   },
   watch: {
-    '$route.fullPath' () {
-      this.closeSmallMenu()
-    }
+    '$route.fullPath': 'closeSmallMenu'
   },
   methods: {
     closeSmallMenu () {

@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed inset-x-0 top-0 flex h-16 w-full items-stretch justify-between bg-white p-2 px-2 transition-colors rtl:flex-row-reverse dark:bg-brand-mag-1 sm:px-3 md:px-4 lg:px-6"
+    class="fixed inset-x-0 top-0 z-10 flex h-16 w-full items-stretch justify-between bg-white p-2 px-2 transition-colors rtl:flex-row-reverse dark:bg-brand-mag-1 sm:px-3 md:px-4 lg:px-6"
   >
     <div v-show="!isShowSmallMenu">
       <NuxtLink :to="localePath('/')">
