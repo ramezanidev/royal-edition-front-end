@@ -1,6 +1,6 @@
 <template>
   <div :class="{ dark: darkMode }" class="h-full w-full">
-    <div class="bg-[#f9f9ff] transition-colors dark:bg-brand-mag-2">
+    <div class="bg-brand-mag-3 transition-colors dark:bg-brand-mag-2">
       <MagLayoutHeader />
       <Nuxt class="pt-16" />
       <MagLayoutFootrer />

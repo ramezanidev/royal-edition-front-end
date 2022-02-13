@@ -59,7 +59,7 @@
           <div
             v-for="i in 4"
             :key="i"
-            class="flex h-12 items-center justify-between gap-x-2 rounded-lg bg-[#f9f9ff] px-4 dark:bg-brand-mag-2"
+            class="flex h-12 items-center justify-between gap-x-2 rounded-lg bg-brand-mag-3 px-4 dark:bg-brand-mag-2"
           >
             <span
               class="cursor-pointer select-none rounded-full bg-brand-mag-4 px-3 py-1 text-xs font-bold text-white transition-colors duration-500"
@@ -100,7 +100,7 @@
           <span
             v-for="i in 8"
             :key="i"
-            class="cursor-pointer select-none rounded-full bg-[#f9f9ff] px-3 py-1 text-xs font-bold text-brand-mag-5 transition-colors duration-500 hover:bg-brand-mag-4 hover:text-white dark:bg-brand-mag-2 dark:text-white dark:hover:bg-brand-mag-4 dark:hover:text-white"
+            class="cursor-pointer select-none rounded-full bg-brand-mag-3 px-3 py-1 text-xs font-bold text-brand-mag-5 transition-colors duration-500 hover:bg-brand-mag-4 hover:text-white dark:bg-brand-mag-2 dark:text-white dark:hover:bg-brand-mag-4 dark:hover:text-white"
           >شخصی {{ i }}</span>
         </div>
       </div>
