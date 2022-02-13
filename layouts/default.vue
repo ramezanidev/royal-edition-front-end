@@ -80,10 +80,10 @@ export default Vue.extend({
   created () {
     if (process.client) {
       this.$nextTick(() => {
-      document.querySelector<HTMLElement>('#__nuxt')!.style.height = '100%'
-      document.querySelector<HTMLElement>('#__layout')!.style.height = '100%'
-      document.querySelector<HTMLElement>('html')!.style.height = '100%'
-      document.querySelector<HTMLElement>('body')!.style.height = '100%'
+        document.querySelector<HTMLElement>('#__nuxt')!.style.height = '100%'
+        document.querySelector<HTMLElement>('#__layout')!.style.height = '100%'
+        document.querySelector<HTMLElement>('html')!.style.height = '100%'
+        document.querySelector<HTMLElement>('body')!.style.height = '100%'
       })
     }
   },
@@ -111,6 +111,6 @@ html,
 body,
 #__nuxt,
 #__layout {
-  @apply w-full h-full;
+  @apply h-full w-full;
 }
 </style>

@@ -135,5 +135,9 @@ export default {
     }
   },
 
-  eslint: { cache: false }
+  eslint: { cache: false },
+
+  generate: {
+    routes: ['/mag/a/reza', '/en/mag/a/reza']
+  }
 }

@@ -67,6 +67,7 @@
           <UtilityAppSelect
             :selected="$i18n.locale"
             :options="$i18n.locales.map((x) => x.code)"
+            :dark-mode="false"
             @change="$router.push(switchLocalePath($event))"
           />
         </div>

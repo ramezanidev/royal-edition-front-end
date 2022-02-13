@@ -47,6 +47,7 @@
         </svg>
       </button>
       <UtilityAppSelect
+        :dark-mode="false"
         :selected="$i18n.locale"
         :options="$i18n.locales.map((x) => x.code)"
         @change="$router.push(switchLocalePath($event))"
@@ -93,28 +94,3 @@ export default Vue.extend({
   @apply border-b-[3px] border-brand-4;
 }
 </style>
-
-<i18n>
-{
-  "en": {
-    "links": {
-    "mainPage": "Main page",
-    "serveces": "Serveces",
-    "aboutUs": "About us",
-    "calculator": "Calculator",
-    "mag": "Mag",
-    "contactUs": "Contact us"
-    }
-  },
-  "fa": {
-    "links": {
-    "mainPage": "صفحه اصلی",
-    "serveces": "خدمات",
-    "aboutUs": "درباره ما",
-    "calculator": "حساب گر",
-    "mag": "مجله",
-    "contactUs": "تماس با ما"
-    }
-  }
-}
-</i18n>

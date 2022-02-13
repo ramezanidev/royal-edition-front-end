@@ -28,9 +28,12 @@ export const mutations: MutationTree<RootState> = {
 }
 
 export const actions: ActionTree<RootState, RootState> = {
-  init ({ state }): State['darkMode'] {
+  init ({ state, commit }): State['darkMode'] {
     // @ts-ignore
     const darkMode = this.$cookiz.get('darkMode')
+    if (typeof darkMode !== 'boolean') {
+      commit('setDarkMode', true)
+    }
     state.darkMode = darkMode
     return darkMode
   }

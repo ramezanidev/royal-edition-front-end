@@ -40,10 +40,10 @@ export default Vue.extend({
   created () {
     if (process.client) {
       this.$nextTick(() => {
-      document.querySelector<HTMLElement>('#__nuxt')!.style.height = 'auto'
-      document.querySelector<HTMLElement>('#__layout')!.style.height = 'auto'
-      document.querySelector<HTMLElement>('html')!.style.height = 'auto'
-      document.querySelector<HTMLElement>('body')!.style.height = 'auto'
+        document.querySelector<HTMLElement>('#__nuxt')!.style.height = 'auto'
+        document.querySelector<HTMLElement>('#__layout')!.style.height = 'auto'
+        document.querySelector<HTMLElement>('html')!.style.height = 'auto'
+        document.querySelector<HTMLElement>('body')!.style.height = 'auto'
       })
     }
   },
