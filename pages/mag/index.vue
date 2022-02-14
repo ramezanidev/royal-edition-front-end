@@ -11,7 +11,7 @@
         class="rounded-xl bg-white p-4 shadow-[0_10px_40px_0_#00000025] dark:bg-brand-mag-1"
       >
         <h3 class="text-lg font-bold text-black dark:text-white">
-          نوشته های اخیر
+          {{ $t('recentPosts') }}
         </h3>
         <div class="mt-4 space-y-4">
           <div v-for="i in 4" :key="i" class="flex h-[4.5rem] gap-x-2">
@@ -53,7 +53,7 @@
         class="rounded-xl bg-white p-4 shadow-[0_10px_40px_0_#00000025] dark:bg-brand-mag-1"
       >
         <h3 class="text-lg font-bold text-black dark:text-white">
-          نوشته های اخیر
+          {{ $t('categories') }}
         </h3>
         <div class="mt-4 space-y-4">
           <div
@@ -73,7 +73,7 @@
         class="rounded-xl bg-white p-4 shadow-[0_10px_40px_0_#00000025] dark:bg-brand-mag-1"
       >
         <h3 class="text-lg font-bold text-black dark:text-white">
-          اینستاگرام
+          {{ $t('instagram') }}
         </h3>
         <div class="mt-4 grid grid-cols-3 gap-2">
           <div
@@ -94,7 +94,7 @@
         class="rounded-xl bg-white p-4 shadow-[0_10px_40px_0_#00000025] dark:bg-brand-mag-1"
       >
         <h3 class="text-lg font-bold text-black dark:text-white">
-          برچسب ها
+          {{ $t('labels') }}
         </h3>
         <div class="mt-4 flex flex-wrap gap-1 gap-y-1.5">
           <span
@@ -115,3 +115,20 @@ export default Vue.extend({
   layout: 'mag'
 })
 </script>
+
+<i18n>
+{
+    "en": {
+      "recentPosts": "Recent Posts",
+      "categories": "Categories",
+      "instagram": "Instagram",
+      "labels": "Labels"
+    },
+    "fa": {
+      "recentPosts": "نوشته های اخیر",
+      "categories": "دسته بندی ها",
+      "instagram": "اینستاگرام",
+      "labels": "برچسب ها"
+    }
+}
+</i18n>

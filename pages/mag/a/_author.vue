@@ -11,7 +11,7 @@
       </h1>
       <span
         class="cursor-pointer select-none rounded-full bg-brand-mag-4 px-3 py-1 text-xs font-bold text-white transition-colors duration-500 hover:bg-brand-mag-5 dark:hover:bg-brand-mag-1"
-      >13 مقاله</span>
+      >13 {{ $t('article') }}</span>
       <p
         class="my-3 max-w-lg text-center text-sm text-brand-mag-5 dark:text-brand-mag-3"
       >
@@ -68,3 +68,14 @@ export default Vue.extend({
   layout: 'mag'
 })
 </script>
+
+<i18n>
+{
+    "en": {
+      "article": "Article"
+    },
+    "fa": {
+      "article": "مقاله"
+    }
+}
+</i18n>
