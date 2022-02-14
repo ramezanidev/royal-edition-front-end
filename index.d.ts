@@ -25,3 +25,9 @@ declare module 'vue/types/vue' {
     $api: NuxtAxiosInstance;
   }
 }
+
+export type ErrorPropType = {
+  statusCode?: number,
+  path?: string,
+  message?: string,
+}

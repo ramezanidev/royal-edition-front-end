@@ -1,9 +1,9 @@
 <template>
   <div :class="{ dark: darkMode }" class="h-full w-full">
-    <div class="bg-brand-mag-3 transition-colors dark:bg-brand-mag-2">
+    <div class="bg-brand-mag-3 transition-colors dark:bg-brand-mag-2 min-h-screen flex flex-col">
       <MagLayoutHeader />
       <Nuxt class="pt-16" />
-      <MagLayoutFootrer />
+      <MagLayoutFootrer class="mt-auto" />
     </div>
   </div>
 </template>
