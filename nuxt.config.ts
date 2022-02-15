@@ -138,6 +138,13 @@ export default {
   eslint: { cache: false },
 
   generate: {
-    routes: ['/mag/a/reza', '/en/mag/a/reza', '/mag/reza', '/en/mag/reza']
+    routes: [
+      '/mag/a/reza',
+      '/en/mag/a/reza',
+      '/mag/reza',
+      '/en/mag/reza',
+      '/mag/c/reza',
+      '/en/mag/c/reza'
+    ]
   }
 }

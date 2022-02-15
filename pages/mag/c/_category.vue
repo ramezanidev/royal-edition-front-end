@@ -1,32 +1,43 @@
 <template>
-  <div
-    class="mx-auto w-full max-w-[1280px] p-2 pt-[5.5rem] pb-24 "
-  >
+  <div class="mx-auto w-full max-w-[1280px] p-2 pt-[5.5rem] pb-24">
     <div class="px-2">
-      <div class="flex text-xs items-center flex-wrap sm:text-sm text-brand-mag-5 dark:text-brand-mag-3">
-        <nuxt-link :to="localePath('/mag')" class="hover:text-brand-mag-4 transition-colors duration-300">
+      <div
+        class="flex flex-wrap items-center text-xs text-brand-mag-5 dark:text-brand-mag-3 sm:text-sm"
+      >
+        <nuxt-link
+          :to="localePath('/mag')"
+          class="transition-colors duration-300 hover:text-brand-mag-4"
+        >
           {{ $t('homePage') }}
         </nuxt-link>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
-          class="w-3 mx-1 rtl:transform rtl:rotate-180"
+          class="mx-1 w-3 rtl:rotate-180 rtl:transform"
           viewBox="0 0 16 16"
         >
-          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+          <path
+            fill-rule="evenodd"
+            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+          />
         </svg>
-        <nuxt-link :to="localePath('/mag')" class="hover:text-brand-mag-4 transition-colors duration-300">
+        <nuxt-link
+          :to="localePath('/mag')"
+          class="transition-colors duration-300 hover:text-brand-mag-4"
+        >
           سبک زدندگی
         </nuxt-link>
       </div>
-      <h4 class="text-brand-mag-5 dark:text-brand-mag-3 text-lg flex font-bold mt-2 sm:text-xl md:text-2xl">
+      <h4
+        class="mt-2 flex text-lg font-bold text-brand-mag-5 dark:text-brand-mag-3 sm:text-xl md:text-2xl"
+      >
         {{ $t('category') }}:
         <p class="text-brand-mag-4">
           سبک زندگی
         </p>
       </h4>
     </div>
-    <div class="flex flex-col md:flex-row gap-4 w-full">
+    <div class="flex w-full flex-col gap-4 md:flex-row">
       <div class="w-full md:w-[calc(100%-22rem)]">
         <MagItems :sm="1" :md="1" :lg="2" />
       </div>

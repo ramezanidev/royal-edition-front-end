@@ -252,20 +252,28 @@
       >
         <!-- all comments -->
         <h3 class="mb-2 text-xl font-bold text-black dark:text-white">
-          3 {{ $t('comments.comments') }}
+          3 دیدگاه
         </h3>
-        <div class="space-y-8 mb-12 mt-4">
+        <div class="mb-12 mt-4 space-y-8">
           <div v-for="i in 4" :key="i" class="flex">
             <!-- profile -->
-            <div class="w-20 h-20 hidden lg:flex aspect-square rounded-full overflow-hidden">
-              <img class="w-full h-full" src="https://noonpost.oonio.ir/html/template/assets/img/user/1.jpg" alt="">
+            <div
+              class="hidden aspect-square h-20 w-20 overflow-hidden rounded-full lg:flex"
+            >
+              <img
+                class="h-full w-full"
+                src="https://noonpost.oonio.ir/html/template/assets/img/user/1.jpg"
+                alt=""
+              >
             </div>
-            <div class="flex flex-col space-y-3 lg:max-w-[calc(100%-5rem)] lg:px-2">
+            <div
+              class="flex flex-col space-y-3 lg:max-w-[calc(100%-5rem)] lg:px-2"
+            >
               <!-- information -->
               <div class="flex items-center">
                 <div class="group flex cursor-pointer items-center gap-1.5">
                   <img
-                    class="h-10 w-10 lg:hidden rounded-full object-cover object-center"
+                    class="h-10 w-10 rounded-full object-cover object-center lg:hidden"
                     draggable="false"
                     src="/mag/author.jpg"
                     alt="author"
@@ -275,7 +283,9 @@
                   >فلانی فلانی نسب</span>
                 </div>
                 <!-- dot -->
-                <span class="mx-4 flex h-1.5 w-1.5 rounded-full bg-brand-mag-4" />
+                <span
+                  class="mx-4 flex h-1.5 w-1.5 rounded-full bg-brand-mag-4"
+                />
                 <!-- date -->
                 <p
                   class="select-none text-xs text-brand-mag-5 dark:text-brand-mag-3"
@@ -284,33 +294,40 @@
                 </p>
               </div>
               <!-- msg -->
-              <p class="text-brand-mag-5 dark:text-brand-mag-3 text-sm">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است
+              <p class="text-sm text-brand-mag-5 dark:text-brand-mag-3">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان که لازم است
               </p>
               <!-- reply button -->
               <div>
-                <button class="bg-brand-mag-4 flex py-1 px-3 text-white text-xs rounded-full opacity-100 transition-colors hover:opacity-90">
+                <button
+                  class="flex rounded-full bg-brand-mag-4 py-1 px-3 text-xs text-white opacity-100 transition-colors hover:opacity-90"
+                >
                   <svg
-                    class="w-3 h-3 mx-1"
+                    class="mx-1 h-3 w-3"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
                     viewBox="0 0 16 16"
                   >
-                    <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z" />
+                    <path
+                      d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"
+                    />
                   </svg>
-                  <span>
-                    {{ $t('comments.reply') }}
-                  </span>
+                  <span> پاسخ </span>
                 </button>
               </div>
               <!-- replys -->
-              <div v-if="i === 1" class="bg-brand-mag-3 space-y-8 dark:bg-brand-mag-2 p-4 rounded-lg rtl:mr-8 rtl:lg:mr-0 ltr:ml-8 ltr:lg:ml-0">
+              <div
+                v-if="i === 1"
+                class="space-y-8 rounded-lg bg-brand-mag-3 p-4 ltr:ml-8 rtl:mr-8 dark:bg-brand-mag-2 ltr:lg:ml-0 rtl:lg:mr-0"
+              >
                 <div v-for="w in 2" :key="w" class="space-y-2">
                   <!-- information -->
                   <div class="flex items-center">
                     <div class="group flex cursor-pointer items-center gap-1.5">
                       <img
-                        class="h-8 w-8 lg:w-10 lg:h-10 rounded-full object-cover object-center"
+                        class="h-8 w-8 rounded-full object-cover object-center lg:h-10 lg:w-10"
                         draggable="false"
                         src="/mag/author.jpg"
                         alt="author"
@@ -320,7 +337,9 @@
                       >فلانی فلانی نسب</span>
                     </div>
                     <!-- dot -->
-                    <span class="mx-4 flex h-1.5 w-1.5 rounded-full bg-brand-mag-4" />
+                    <span
+                      class="mx-4 flex h-1.5 w-1.5 rounded-full bg-brand-mag-4"
+                    />
                     <!-- date -->
                     <p
                       class="select-none text-xs text-brand-mag-5 dark:text-brand-mag-3"
@@ -329,8 +348,10 @@
                     </p>
                   </div>
                   <!-- msg -->
-                  <p class="text-brand-mag-5 dark:text-brand-mag-3 text-[13px]">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است
+                  <p class="text-[13px] text-brand-mag-5 dark:text-brand-mag-3">
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                    با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه
+                    و مجله در ستون و سطرآنچنان که لازم است
                   </p>
                 </div>
               </div>
@@ -339,46 +360,48 @@
         </div>
         <!-- new comment -->
         <h3 class="mb-2 text-xl font-bold text-black dark:text-white">
-          {{ $t('comments.writeComment') }}
+          نوشتن یک دیدگاه
         </h3>
         <p class="text-brand-mag-5 dark:text-brand-mag-3">
-          {{ $t('comments.info') }}
+          آدرس ایمیل شما منتشر نخواهد شد، فیلدهای الزامی علامت گذاری شده است*.
         </p>
         <form class="my-4 flex flex-col space-y-6">
           <textarea
             rows="5"
-            :placeholder="$t('comments.placeholder.msg')"
-            class="w-full dark:text-brand-mag-3 cursor-pointer rounded-lg border border-brand-mag-2 border-opacity-5 bg-brand-mag-3 p-4 shadow-none transition duration-700 focus:cursor-text focus:bg-white focus:shadow-[0_4px_15px_0_#00000018] dark:border-brand-mag-3 dark:border-opacity-10 dark:bg-brand-mag-1 dark:shadow-none dark:focus:bg-brand-mag-2"
+            placeholder="دیدگاه شما"
+            class="w-full cursor-pointer rounded-lg border border-brand-mag-2 border-opacity-5 bg-brand-mag-3 p-4 shadow-none transition duration-700 focus:cursor-text focus:bg-white focus:shadow-[0_4px_15px_0_#00000018] dark:border-brand-mag-3 dark:border-opacity-10 dark:bg-brand-mag-1 dark:text-brand-mag-3 dark:shadow-none dark:focus:bg-brand-mag-2"
           />
           <fieldset class="grid grid-cols-1 gap-6 md:grid-cols-2">
             <input
               type="text"
-              :placeholder="$t('comments.placeholder.fullName')"
-              class="w-full dark:text-brand-mag-3 cursor-pointer rounded-lg border border-brand-mag-2 border-opacity-5 bg-brand-mag-3 px-4 py-2 shadow-none transition duration-700 focus:cursor-text focus:bg-white focus:shadow-[0_4px_15px_0_#00000018] dark:border-brand-mag-3 dark:border-opacity-10 dark:bg-brand-mag-1 dark:shadow-none dark:focus:bg-brand-mag-2"
+              placeholder="نام کامل"
+              class="w-full cursor-pointer rounded-lg border border-brand-mag-2 border-opacity-5 bg-brand-mag-3 px-4 py-2 shadow-none transition duration-700 focus:cursor-text focus:bg-white focus:shadow-[0_4px_15px_0_#00000018] dark:border-brand-mag-3 dark:border-opacity-10 dark:bg-brand-mag-1 dark:text-brand-mag-3 dark:shadow-none dark:focus:bg-brand-mag-2"
             >
             <input
               type="text"
-              :placeholder="$t('comments.placeholder.email')"
-              class="w-full dark:text-brand-mag-3 cursor-pointer rounded-lg border border-brand-mag-2 border-opacity-5 bg-brand-mag-3 px-4 py-2 shadow-none transition duration-700 focus:cursor-text focus:bg-white focus:shadow-[0_4px_15px_0_#00000018] dark:border-brand-mag-3 dark:border-opacity-10 dark:bg-brand-mag-1 dark:shadow-none dark:focus:bg-brand-mag-2"
+              placeholder="آدرس ایمیل"
+              class="w-full cursor-pointer rounded-lg border border-brand-mag-2 border-opacity-5 bg-brand-mag-3 px-4 py-2 shadow-none transition duration-700 focus:cursor-text focus:bg-white focus:shadow-[0_4px_15px_0_#00000018] dark:border-brand-mag-3 dark:border-opacity-10 dark:bg-brand-mag-1 dark:text-brand-mag-3 dark:shadow-none dark:focus:bg-brand-mag-2"
             >
           </fieldset>
           <input
             type="text"
-            :placeholder="$t('comments.placeholder.website')"
-            class="w-full dark:text-brand-mag-3 cursor-pointer rounded-lg border border-brand-mag-2 border-opacity-5 bg-brand-mag-3 px-4 py-2 shadow-none transition duration-700 focus:cursor-text focus:bg-white focus:shadow-[0_4px_15px_0_#00000018] dark:border-brand-mag-3 dark:border-opacity-10 dark:bg-brand-mag-1 dark:shadow-none dark:focus:bg-brand-mag-2"
+            placeholder="وب سایت"
+            class="w-full cursor-pointer rounded-lg border border-brand-mag-2 border-opacity-5 bg-brand-mag-3 px-4 py-2 shadow-none transition duration-700 focus:cursor-text focus:bg-white focus:shadow-[0_4px_15px_0_#00000018] dark:border-brand-mag-3 dark:border-opacity-10 dark:bg-brand-mag-1 dark:text-brand-mag-3 dark:shadow-none dark:focus:bg-brand-mag-2"
           >
           <label
             class="flex items-center gap-2 text-sm text-brand-mag-5 dark:text-brand-mag-3"
           >
             <input type="checkbox" class="h-4 w-4 accent-brand-mag-4" checked>
-            <span> {{ $t('comments.saveInformation') }}</span>
+            <span>
+              برای دفعه بعد که نظر می دهم نام، ایمیل و وب سایت من را در این
+              مرورگر ذخیره کنید.</span>
           </label>
           <fieldset>
             <button
               type="submit"
               class="w-full rounded-lg bg-brand-mag-4 py-2 px-4 text-white opacity-100 transition-colors duration-500 hover:opacity-90 md:w-auto md:rounded-full"
             >
-              {{ $t('comments.submit') }}
+              ثبت دیدگاه
             </button>
           </fieldset>
         </form>
@@ -544,7 +567,6 @@
       </div>
     </div>
   </div>
-  </div>
 </template>
 
 <script lang="ts">
@@ -593,7 +615,7 @@ export default Vue.extend({
           "msg": "Your Comment",
           "fullName": "full name",
           "email": "E-mail",
-          "website": "Website"
+          "website": "وب سایت"
         }
       }
     },

@@ -27,7 +27,7 @@ declare module 'vue/types/vue' {
 }
 
 export type ErrorPropType = {
-  statusCode?: number,
-  path?: string,
-  message?: string,
-}
+  statusCode?: number;
+  path?: string;
+  message?: string;
+};

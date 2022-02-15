@@ -1,17 +1,26 @@
 <template>
-  <div class="h-full w-full flex justify-center items-center px-2">
-    <div class="bg-white dark:bg-brand-mag-1 flex flex-col items-center rounded-lg shadow-[0_10px_40px_0_#00000025] py-12 md:px-20 w-full md:w-auto mx-0 my-16 md:mx-16">
-      <strong class="text-brand-mag-4 text-center text-[50px] sm:text-[80px] md:text-[100px] lg:text-[130px] select-none">{{ error.statusCode }}</strong>
-      <p class="text-brand-mag-2 text-center font-bold text-sm sm:text-base md:text-lg dark:text-white">
+  <div class="flex h-full w-full items-center justify-center px-2">
+    <div
+      class="mx-0 my-16 flex w-full flex-col items-center rounded-lg bg-white py-12 shadow-[0_10px_40px_0_#00000025] dark:bg-brand-mag-1 md:mx-16 md:w-auto md:px-20"
+    >
+      <strong
+        class="select-none text-center text-[50px] text-brand-mag-4 sm:text-[80px] md:text-[100px] lg:text-[130px]"
+      >{{ error.statusCode }}</strong>
+      <p
+        class="text-center text-sm font-bold text-brand-mag-2 dark:text-white sm:text-base md:text-lg"
+      >
         {{ error.statusCode === 404 ? $t('404') : error.message }}
       </p>
-      <p v-if="error.statusCode === 404" class="text-xs text-center sm:text-sm text-brand-mag-5 dark:text-brand-mag-3">
+      <p
+        v-if="error.statusCode === 404"
+        class="text-center text-xs text-brand-mag-5 dark:text-brand-mag-3 sm:text-sm"
+      >
         {{ $t('subtitle') }}
       </p>
       <NuxtLink :to="localePath('/mag', $i18n.locale)" class="mt-4">
         <button
           type="submit"
-          class="text-sm rounded-lg bg-brand-mag-4 py-1 px-2 text-white opacity-100 transition-colors duration-500 hover:opacity-90 md:rounded-full"
+          class="rounded-lg bg-brand-mag-4 py-1 px-2 text-sm text-white opacity-100 transition-colors duration-500 hover:opacity-90 md:rounded-full"
         >
           {{ $t('backHome') }}
         </button>
