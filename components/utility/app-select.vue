@@ -6,9 +6,13 @@
       @click.stop="show = !show"
     >
       <span
-        class="flex px-2 pt-1 text-[18px] uppercase text-white xl:text-[20px]"
+        class="flex px-2 pt-1 text-[18px] uppercase text-brand-mag-5 dark:text-white xl:text-[20px]"
+        :class="{ '!text-white': !darkMode }"
       >{{ selected }}</span>
-      <span class="text-white">
+      <span
+        class="text-black dark:text-white"
+        :class="{ '!text-white': !darkMode }"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="14"
@@ -35,7 +39,7 @@
       <div
         v-if="show"
         v-click-outside="close"
-        class="absolute top-full z-10 min-w-[60px] overflow-hidden rounded-[15px] bg-white"
+        class="absolute top-full z-10 min-w-[60px] overflow-hidden rounded-[15px] bg-white shadow"
       >
         <div
           v-for="option in options"
@@ -79,6 +83,10 @@ export default Vue.extend({
     selected: {
       type: [String, Number, Boolean],
       required: true
+    },
+    darkMode: {
+      type: Boolean,
+      default: true
     },
     options: {
       type: Array,

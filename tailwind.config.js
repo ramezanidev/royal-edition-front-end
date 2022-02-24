@@ -8,7 +8,7 @@ module.exports = {
     './plugins/**/*.{js,ts}',
     './nuxt.config.{js,ts}'
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     screens: {
       ...defaultTheme.screens,
@@ -32,7 +32,14 @@ module.exports = {
           5: '#F1FDFF',
           6: '#0F4C75',
           7: '#BBE1FA',
-          8: '#4494CA'
+          8: '#4494CA',
+          mag: {
+            1: '#2b2b2b',
+            2: '#1d1d1d',
+            3: '#f9f9ff',
+            4: '#f86a01',
+            5: '#506172'
+          }
         }
       }
     }

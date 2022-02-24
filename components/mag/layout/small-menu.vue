@@ -13,10 +13,13 @@
       @click.self="closeSmallMenu"
     >
       <div
-        class="relative w-3/4 bg-brand-3 bg-opacity-[0.97] p-4 pt-0 shadow will-change-[opacity]"
+        class="relative w-3/4 bg-white bg-opacity-[0.97] p-4 pt-0 shadow will-change-[opacity] dark:bg-brand-mag-2 dark:bg-opacity-[0.97]"
       >
         <div class="flex h-[70px] items-center justify-between">
-          <button class="text-white" @click="closeSmallMenu">
+          <button
+            class="text-brand-mag-5 dark:text-white"
+            @click="closeSmallMenu"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
@@ -36,7 +39,11 @@
             </svg>
           </button>
           <img
-            src="/logo.png"
+            :src="
+              $store.getters.darkMode
+                ? `/mag/dark-mag.png`
+                : `/mag/light-mag.png`
+            "
             class="w-40 select-none"
             draggable="false"
             alt="coilaco"
@@ -56,7 +63,7 @@
             >
               <path
                 d="M11.3611 28.0833C6.7434 28.0833 3 31.8267 3 36.4444V40.625M36.4444 40.625V36.4444C36.4444 31.8267 32.701 28.0833 28.0833 28.0833H19.7222M19.7222 3C15.1045 3 11.3611 6.7434 11.3611 11.3611C11.3611 15.9788 15.1045 19.7222 19.7222 19.7222C24.3399 19.7222 28.0833 15.9788 28.0833 11.3611C28.0833 9.83819 27.6762 8.41036 26.9648 7.18056"
-                stroke="white"
+                class="stroke-brand-mag-5 dark:stroke-white"
                 stroke-width="5"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -67,20 +74,19 @@
           <UtilityAppSelect
             :selected="$i18n.locale"
             :options="$i18n.locales.map((x) => x.code)"
-            :dark-mode="false"
             @change="$router.push(switchLocalePath($event))"
           />
         </div>
         <!-- divider -->
-        <div class="my-6 h-0 w-full border border-white opacity-50" />
+        <div
+          class="my-6 h-0 w-full border border-brand-mag-5 opacity-50 dark:border-white"
+        />
         <!-- nav items -->
-        <nav
-          class="flex flex-col gap-y-4 text-[18px] text-white xl:text-[20px]"
-        >
+        <nav class="flex flex-col gap-y-4 text-[18px] xl:text-[20px]">
           <NuxtLink
             v-for="link in navBarLinks"
             :key="link.href"
-            class="nav-item select-none"
+            class="nav-item select-none text-black transition-colors hover:text-brand-mag-5 dark:text-white dark:hover:text-brand-mag-4"
             draggable="false"
             :to="localePath(link.href, $i18n.locale)"
           >
@@ -89,7 +95,7 @@
         </nav>
         <!-- CopyRight LICENSE -->
         <p
-          class="absolute inset-x-0 bottom-0 w-full p-4 font-light text-white rtl:text-left"
+          class="absolute inset-x-0 bottom-0 w-full p-4 font-light text-black rtl:text-left dark:text-white"
           dir="ltr"
         >
           Licensed by
@@ -98,7 +104,7 @@
             class="mx-1"
             target="_blank"
             rel="noopener noreferrer"
-          ><strong class="font-bold">Coilaco</strong></a>
+          ><strong class="font-bold text-brand-mag-4">Coilaco</strong></a>
         </p>
       </div>
     </menu>
@@ -110,7 +116,7 @@ import Vue from 'vue'
 import nav from '@/mixins/nav'
 
 export default Vue.extend({
-  name: 'LayoutAppSmMenu',
+  name: 'MagAppSmMenu',
   mixins: [nav],
   props: {
     value: {
@@ -129,9 +135,7 @@ export default Vue.extend({
     }
   },
   watch: {
-    '$route.fullPath' () {
-      this.closeSmallMenu()
-    }
+    '$route.fullPath': 'closeSmallMenu'
   },
   methods: {
     closeSmallMenu () {

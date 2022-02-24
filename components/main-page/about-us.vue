@@ -128,6 +128,7 @@ export default mixins(sectionNavigate).extend({
     step: 1,
     isAnimation: false
   }),
+
   mounted () {
     const el = this.$refs.parentElement as HTMLDivElement
     const mc = this.$hammer(el)
